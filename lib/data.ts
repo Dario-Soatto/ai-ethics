@@ -116,6 +116,51 @@ export async function loadDilemmaWithCells(
   return { dilemma, cells };
 }
 
+/**
+ * Pairwise model agreement using histogram intersection.
+ * For each dilemma, agreement = sum over options of min(P_A(opt), P_B(opt))
+ * (which is in [0,1]). The matrix value is the mean over dilemmas with data.
+ * Diagonal is always 1.0; the matrix is symmetric.
+ */
+export function computeAgreementMatrix(
+  summaries: DilemmaWithCells[]
+): number[][] {
+  const N = models.length;
+  const matrix: number[][] = Array.from({ length: N }, () => Array(N).fill(0));
+
+  for (let i = 0; i < N; i++) {
+    for (let j = 0; j < N; j++) {
+      let total = 0;
+      let count = 0;
+      for (const { cells } of summaries) {
+        const cellI = cells[models[i].slug];
+        const cellJ = cells[models[j].slug];
+        const ni = cellI.validSamples.length;
+        const nj = cellJ.validSamples.length;
+        if (ni === 0 || nj === 0) continue;
+        const countsI = new Map<string, number>();
+        const countsJ = new Map<string, number>();
+        for (const s of cellI.validSamples)
+          countsI.set(s.decision, (countsI.get(s.decision) ?? 0) + 1);
+        for (const s of cellJ.validSamples)
+          countsJ.set(s.decision, (countsJ.get(s.decision) ?? 0) + 1);
+        const decisions = new Set([...countsI.keys(), ...countsJ.keys()]);
+        let overlap = 0;
+        for (const d of decisions) {
+          overlap += Math.min(
+            (countsI.get(d) ?? 0) / ni,
+            (countsJ.get(d) ?? 0) / nj
+          );
+        }
+        total += overlap;
+        count += 1;
+      }
+      matrix[i][j] = count > 0 ? total / count : 0;
+    }
+  }
+  return matrix;
+}
+
 export async function loadModelAcrossDilemmas(
   modelSlug: string
 ): Promise<{ model: ModelConfig; rows: { dilemma: Dilemma; summary: CellSummary }[] } | null> {

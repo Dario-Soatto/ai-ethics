@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { models } from "@/lib/models";
-import { loadAllSummaries, type CellSummary } from "@/lib/data";
+import {
+  loadAllSummaries,
+  computeAgreementMatrix,
+  type CellSummary,
+} from "@/lib/data";
 import { tintBg, TONE_CSS_VAR } from "@/lib/colors";
 import {
   categories,
@@ -64,6 +68,8 @@ export default async function HomePage(props: PageProps<"/">) {
       rows: visibleSummaries.filter((s) => s.dilemma.category === cat.id),
     }))
     .filter((g) => g.rows.length > 0);
+
+  const agreement = computeAgreementMatrix(visibleSummaries);
 
   return (
     <div className="mx-auto max-w-6xl px-8">
@@ -186,8 +192,22 @@ export default async function HomePage(props: PageProps<"/">) {
       </section>
 
       <section className="py-12 border-t border-[var(--color-rule)]">
+        <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-3">
+          02 · model agreement
+        </h2>
+        <p className="text-xs text-[var(--color-ink-soft)] leading-relaxed max-w-2xl mb-8">
+          How similar each pair of models&apos; decision distributions are
+          across {visibleSummaries.length} dilemma{visibleSummaries.length === 1 ? "" : "s"}.
+          Computed as histogram intersection per dilemma — Σ min(P<sub>A</sub>(opt),
+          P<sub>B</sub>(opt)) — averaged across dilemmas. 100 = identical
+          distributions everywhere; 0 = no overlap.
+        </p>
+        <AgreementMatrix matrix={agreement} />
+      </section>
+
+      <section className="py-12 border-t border-[var(--color-rule)]">
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-8">
-          02 · color key
+          03 · color key
         </h2>
         <ColorKey />
       </section>
@@ -223,6 +243,79 @@ function FilterPills({ active }: { active: CategoryId | null }) {
           </Link>
         );
       })}
+    </div>
+  );
+}
+
+function AgreementMatrix({ matrix }: { matrix: number[][] }) {
+  // Stretch the typical [0.5, 1] range into [0, 1] so differences pop.
+  const remap = (v: number) => Math.max(0, Math.min(1, (v - 0.5) / 0.5));
+
+  return (
+    <div className="overflow-x-auto -mx-1">
+      <table className="border-collapse">
+        <thead>
+          <tr>
+            <th className="w-32" />
+            {models.map((m) => (
+              <th
+                key={m.slug}
+                className="text-center px-2 py-3 text-xs font-normal text-[var(--color-ink)] min-w-[100px] border-b border-[var(--color-rule)]"
+              >
+                <Link
+                  href={`/m/${m.slug}`}
+                  className="hover:text-[var(--color-jade)]"
+                >
+                  {m.label.replace(" Maverick", "")}
+                </Link>
+                <div className="text-[10px] text-[var(--color-ink-mute)] tracking-wider font-normal mt-0.5">
+                  {m.provider.toLowerCase()}
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {models.map((rowM, i) => (
+            <tr
+              key={rowM.slug}
+              className="border-b border-[var(--color-rule)] last:border-b-0"
+            >
+              <th className="text-left pr-4 pl-2 py-3 text-sm font-normal whitespace-nowrap">
+                <Link
+                  href={`/m/${rowM.slug}`}
+                  className="text-[var(--color-ink)] hover:text-[var(--color-jade)]"
+                >
+                  {rowM.label.replace(" Maverick", "")}
+                </Link>
+              </th>
+              {models.map((colM, j) => {
+                const value = matrix[i][j];
+                const isDiagonal = i === j;
+                const pct = Math.round(value * 100);
+                return (
+                  <td key={colM.slug} className="p-1 align-middle">
+                    <div
+                      style={
+                        isDiagonal
+                          ? undefined
+                          : { backgroundColor: tintBg("good", remap(value)) }
+                      }
+                      className={`block px-3 py-3 text-center text-sm ${
+                        isDiagonal
+                          ? "text-[var(--color-ink-mute)]"
+                          : "text-[var(--color-ink)]"
+                      }`}
+                    >
+                      {isDiagonal ? "—" : pct}
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
