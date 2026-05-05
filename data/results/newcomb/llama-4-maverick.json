@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "newcomb",
+  "modelId": "meta/llama-4-maverick",
+  "modelSlug": "llama-4-maverick",
+  "modelLabel": "Llama 4 Maverick",
+  "generatedAt": "2026-05-05T15:41:35.198Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nA highly reliable predictor (correct on 99% of past predictions) has placed two boxes in front of you:\n- Box A is transparent and contains $1,000.\n- Box B is opaque and contains either $1,000,000 or nothing.\n\nThe predictor made their prediction yesterday and has already placed the contents:\n- If they predicted you would take only Box B, they put $1,000,000 in it.\n- If they predicted you would take both boxes, they put nothing in Box B.\n\nThe contents are already fixed and will not change based on what you do now.\n\nQuestion:\nDo you take only Box B, or both boxes?\n\nChoices (use the value on the left in your response):\n  - one_box: One-box (take only Box B)\n  - two_box: Two-box (take both)\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"one_box\" | \"two_box\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor's high accuracy means that my choice is likely correlated with their prediction. Since the contents are already fixed, the decision hinges on whether I trust the predictor's prediction. Given the predictor is correct 99% of the time, I should act as if my choice is being predicted, and thus taking only Box B is likely to yield $1,000,000.",
+      "durationMs": 972,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 97,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable, having been correct 99% of the time in the past. This suggests that their prediction about my action is likely to be correct. If I take both boxes, the predictor likely predicted this and Box B is empty, resulting in a gain of $1,000. If I take only Box B, the predictor likely predicted this and Box B contains $1,000,000. Given the high reliability of the predictor, the potential gain of $1,000,000 outweighs the certain gain of $1,000, making taking only Box B the more rewarding choice.",
+      "durationMs": 965,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 144,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable and has already made their prediction and placed the contents of Box B accordingly. Since the contents are fixed and won't change based on my action now, the decision hinges on the predictor's past prediction. If I take both boxes, the predictor likely predicted that and put nothing in Box B, resulting in $1,000. If I take only Box B, the predictor likely predicted that and put $1,000,000 in it. Given the predictor's 99% accuracy, it's highly likely that taking only Box B will result in $1,000,000, making it the rational choice despite the apparent dominance of taking both boxes under a different interpretation of the scenario.",
+      "durationMs": 1212,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 162,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor has a 99% accuracy rate, so it's highly likely that their prediction yesterday reflects my decision today. If I take both boxes, the predictor likely predicted that and Box B is empty. If I take only Box B, the predictor likely predicted that and Box B contains $1,000,000. The potential gain of $1,000,000 outweighs the certain gain of $1,000, so I choose to take only Box B.",
+      "durationMs": 833,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 115,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable and has already made their prediction and placed the contents. If I take both boxes, it's likely because the predictor predicted I would take both, resulting in Box B being empty. Taking only Box B is likely to result in getting $1,000,000 because the predictor probably predicted this action and filled Box B accordingly. The $1,000 in Box A is a relatively small amount compared to the potential $1,000,000 in Box B, making the risk worth it for the potential high reward.",
+      "durationMs": 1031,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 129,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable and has already made their prediction and placed the contents of Box B accordingly. Since the contents are fixed and won't change, my decision now is influenced by the predictor's past accuracy. If I take both boxes, the predictor likely predicted this and put nothing in Box B, resulting in $1,000. If I take only Box B, the predictor likely predicted this and put $1,000,000 in it. Given the predictor's 99% accuracy, the odds are strongly in favor of getting $1,000,000 by taking only Box B, making it the more rewarding choice.",
+      "durationMs": 1033,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 147,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable, having been correct 99% of the time in the past. Given this, it's highly likely that they have accurately predicted my decision. If I take both boxes, the predictor likely predicted this and Box B is empty, resulting in a payout of $1,000. If I take only Box B, the predictor likely predicted this and Box B contains $1,000,000. The potential gain of taking one box ($1,000,000) significantly outweighs the gain of taking both boxes ($1,000), assuming the predictor correctly predicted my action. Thus, taking only Box B is the rational choice to maximize my payout.",
+      "durationMs": 1183,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 156,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable, with a 99% accuracy rate on past predictions. If I take both boxes, the predictor likely predicted this and Box B is empty, resulting in $1,000. If I take only Box B, the predictor likely predicted this and Box B contains $1,000,000. The high reliability of the predictor makes it more likely that taking only Box B will result in the higher reward, despite the contents being already fixed.",
+      "durationMs": 848,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 115,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor is highly reliable, with a 99% accuracy rate. This means that if I two-box, there's a 99% chance the predictor predicted I would two-box, and thus Box B is likely empty. Conversely, if I one-box, there's a 99% chance the predictor predicted I would one-box, and Box B likely contains $1,000,000. Given the predictor's prediction is already made and the contents are fixed, my decision doesn't change the past, but the predictor's high accuracy suggests that one-boxing is the better choice because it aligns with the predictor's likely prediction. The potential gain of $1,000,000 outweighs the certain $1,000, making one-boxing the rational decision under the circumstances.",
+      "durationMs": 1404,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 175,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "one_box",
+      "confidence": 0.99,
+      "reasoning": "The predictor has a 99% accuracy rate, so it's highly likely that they have predicted my action correctly. If I take both boxes, it's likely that the predictor predicted this and Box B is empty. If I take only Box B, it's likely that the predictor predicted this and Box B contains $1,000,000. Therefore, taking only Box B gives me a much higher expected payoff.",
+      "durationMs": 788,
+      "finishReason": "stop",
+      "inputTokens": 389,
+      "outputTokens": 102,
+      "attempts": 1
+    }
+  ]
+}

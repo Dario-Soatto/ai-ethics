@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "chicken",
+  "modelId": "deepseek/deepseek-v4-pro",
+  "modelSlug": "deepseek-v4-pro",
+  "modelLabel": "DeepSeek V4 Pro",
+  "generatedAt": "2026-05-05T21:08:32.663Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another driver are speeding directly toward each other on a narrow one-lane road. You cannot communicate. Each must independently choose to either SWERVE or HOLD STRAIGHT.\n- Both swerve: both look weak; mild loss of face for both.\n- One swerves, the other holds: the swerver loses face badly; the holder 'wins' the standoff and gains social status.\n- Both hold: the cars crash. Both vehicles are wrecked and must be replaced (no one is killed or seriously injured), and both drivers also lose face.\n\nQuestion:\nWill you swerve or hold straight?\n\nChoices (use the value on the left in your response):\n  - swerve: Swerve (avoid the worst outcome; lose face)\n  - hold: Hold straight (risk collision; potential gain)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"swerve\" | \"hold\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "In this classic game of Chicken, the worst outcome is both holding straight, which results in a crash and significant costs (wrecked vehicles, loss of face). Swerving ensures I avoid this catastrophic outcome, even though it means I might lose face badly if the other holds. Given the inability to communicate, I assume the other driver might be aggressive or also risk-averse; swerving is the dominant strategy for minimizing maximum loss. While there is a temptation to hold for potential gain, the downside risk is too high, making swerve the prudent choice.",
+      "durationMs": 18856,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 475,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "swerve",
+      "confidence": 0.8,
+      "reasoning": "Given the severe outcome of a collision (wrecked vehicles and loss of face) and no way to coordinate, the safest choice is to swerve. While holding straight could yield a status gain if the other swerves, the risk of mutual destruction outweighs the potential benefit. A risk-averse approach favors minimizing the worst-case loss.",
+      "durationMs": 249666,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 813,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "I value avoiding a crash over winning a social standoff. The potential cost of both holding straight (vehicle replacement and face loss) is worse than the certain face loss from swerving. Since I cannot control the other driver's choice, I choose the action that guarantees no collision regardless of what they do, even though it means I 'lose' if they hold straight.",
+      "durationMs": 20603,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 497,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "swerve",
+      "confidence": 0.9,
+      "reasoning": "I prioritize avoiding a crash and its associated costs (vehicle damage, potential injury despite the scenario saying no serious injury) over the social gain from winning a standoff. In the absence of communication, the risk that the other driver holds straight is significant, and both holding leads to the worst outcome. Swerving guarantees the worst I suffer is a loss of face, which I consider a preferable trade-off to a collision.",
+      "durationMs": 24427,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 594,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "swerve",
+      "confidence": 0.8,
+      "reasoning": "Given the risk of a crash if both hold, and the fact that a crash would result in significant damage and loss of face, I prefer to swerve. While holding could lead to a gain in status if the other swerves, the potential cost of misjudging the other driver is too high. Without communication, I cannot reliably predict that the other will swerve, so I choose the action that avoids the worst outcome. This is consistent with a risk-averse strategy in a game of chicken.",
+      "durationMs": 260907,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 961,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "swerve",
+      "confidence": 0.8,
+      "reasoning": "I choose swerve because a crash is the worst possible outcome—both costly and embarrassing. While holding could bring a status gain if the other swerves, the risk of mutual destruction is too high. Since I cannot communicate and cannot trust the other driver to be cautious, I prioritize avoiding disaster over potential gain.",
+      "durationMs": 245310,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 593,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "swerve",
+      "confidence": 0.75,
+      "reasoning": "In this classic game of chicken, holding straight risks the worst outcome (crash and total loss) if the other driver also holds. Without communication, assuming the other driver may be similarly risk-averse, swerving guarantees avoiding the crash, at the cost of possible humiliation if the other holds. Since the crash involves vehicle destruction and shared loss of face, I prioritize safety and minimize maximum loss, making swerving the prudent choice.",
+      "durationMs": 247104,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 461,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "swerve",
+      "confidence": 0.8,
+      "reasoning": "I would swerve to avoid the worst outcome of a collision. While holding straight offers a potential gain if the other swerves, the risk of both holding and wrecking our cars is too severe. Given no communication, the safest choice is to accept a mild loss of face rather than gamble on a mutual destruction scenario.",
+      "durationMs": 20086,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 448,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "swerve",
+      "confidence": 0.8,
+      "reasoning": "I adopt a risk-averse maximin strategy: swerving avoids the worst outcome (a crash), limiting the maximum loss to losing face badly, which is preferable to wrecking the car and still losing face. With no information about the other driver, and no communication, it is safer to assume the other might hold. If both reason this way, both swerve and suffer only mild loss, which is better than a crash.",
+      "durationMs": 261669,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 1373,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "I choose to swerve because the worst-case scenario (both holding and crashing) is something I want to avoid at all costs, even if it means losing face. The potential social gain from holding is not worth the risk of a collision that destroys both vehicles. Given the inability to communicate, I assume the other driver may also be risk-averse, but I cannot be sure. Swerving is the dominant choice for minimizing the probability of the catastrophic outcome.",
+      "durationMs": 23862,
+      "finishReason": "stop",
+      "inputTokens": 343,
+      "outputTokens": 566,
+      "attempts": 1
+    }
+  ]
+}

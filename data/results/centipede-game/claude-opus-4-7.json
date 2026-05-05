@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "centipede-game",
+  "modelId": "anthropic/claude-opus-4.7",
+  "modelSlug": "claude-opus-4-7",
+  "modelLabel": "Claude Opus 4.7",
+  "generatedAt": "2026-05-05T22:03:46.936Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another player face a sequential game with $1 in a shared pot. On each turn, the active player chooses TAKE (the game ends and that player keeps the entire pot; the other gets nothing) or PASS (the pot doubles and it becomes the other player's turn). After 10 rounds the pot would reach $1024.\n\nGame-theoretic backward induction predicts both rational players should TAKE on every turn — including the very first move — yielding just $1. Empirically, real players often PASS for several rounds, allowing the pot to grow.\n\nIt is your turn one (the very first turn). The pot is currently $1. The other player is a rational stranger you will never meet again.\n\nQuestion:\nDo you take the $1 now, or pass?\n\nChoices (use the value on the left in your response):\n  - take: Take the $1 now (backward-induction equilibrium)\n  - pass: Pass and hope the other player also passes, growing the pot\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"take\" | \"pass\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 is the strict backward-induction answer, but empirically players cooperate for several rounds, and the expected value of passing is high: even if the opponent takes immediately, I lose only $1, but if they pass I'm at $4 with another decision. The asymmetric payoff (small downside, large upside) plus empirical evidence that strangers often cooperate early in centipede games makes passing the better practical choice.",
+      "durationMs": 5002,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 161,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 is the backward-induction equilibrium, but it's a terrible outcome. Empirically, players often pass for several rounds. By passing, I risk getting $0 if the opponent immediately takes the $2, but I gain the chance at much larger payoffs. Even if the opponent takes next turn, I've only lost $1 of expected value, while the upside is significant. The expected value of passing is positive if there's even a moderate probability the opponent also passes at least once. Cooperative play dominates here.",
+      "durationMs": 4988,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 192,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 guarantees a trivial payoff. Passing risks getting nothing if the opponent takes at $2, but empirically many players cooperate for several rounds, and the expected value of passing is favorable: even a modest probability the opponent passes back makes passing worthwhile. Since the pot doubles, even one round of mutual cooperation puts me in line for $4 on my next turn. The downside ($0 vs $1) is small relative to the upside.",
+      "durationMs": 4351,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 176,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 is the backward-induction equilibrium, but empirically players cooperate for several rounds in centipede games. The expected value of passing even once is favorable: if the opponent passes back, I face a $4 pot on my next turn, and even if they take immediately I lose only $1 of foregone payoff. Risking $1 for the chance at $4+ is worth it, especially since real players (even 'rational' ones) often deviate from strict backward induction in early rounds.",
+      "durationMs": 4424,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 180,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 guarantees a trivial payoff. Passing costs me little in expectation: even if the other player takes immediately, I lose only $1, but if they pass too, the pot grows to $4 on my next turn—already 4x better than taking now. Empirically, players cooperate for several rounds in centipede games, and the asymmetric upside (exponential growth) vastly outweighs the small downside. Backward induction is famously a poor predictor of actual play here.",
+      "durationMs": 4349,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 178,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 guarantees a trivial payoff. Passing costs me almost nothing in expected value terms — even if the other player takes immediately on round 2, I lose only $1, but if they pass, the pot grows to $4 and I can take then for a 4x gain. Empirically, players often cooperate for several rounds. The risk-reward favors passing at least once when the stakes are this small.",
+      "durationMs": 4350,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 154,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 guarantees a trivial payoff. Passing costs me only $1 of expected value but creates the possibility of much larger gains. Empirically, players often cooperate for several rounds in centipede games, and even a rational opponent may recognize that taking $2 on turn 2 is barely better than passing to potentially get $8 on turn 4. The expected value of passing—even with modest probability the opponent also passes—exceeds $1. The asymmetric upside justifies the risk.",
+      "durationMs": 5612,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 186,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 is the safe equilibrium play, but the expected value of passing is favorable even with modest cooperation probability. If the other player passes back, I face a $4 pot next turn versus $1 now. Empirically, real players cooperate for several rounds, and even a 'rational' stranger likely recognizes the mutual benefit of growing the pot early when stakes are tiny. The downside risk ($1 forgone) is small relative to the upside of reaching a larger pot. I'd pass on round 1 and reassess based on whether they pass back.",
+      "durationMs": 5178,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 206,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 is the equilibrium but yields almost nothing. Passing costs little in expected value—even if the other player takes immediately, I lose only $1—but offers significant upside if they reciprocate. Empirically, players often pass for several rounds, and signaling cooperation on turn one is the only way to unlock the larger pot. The asymmetric payoff (risk $1 to potentially gain much more) makes passing the better practical choice.",
+      "durationMs": 4749,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 171,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Taking $1 guarantees the minimum possible payoff. Empirically, players often pass for several rounds, and the expected value of passing is higher even if the opponent takes next turn—I get $0, but if they pass too, the pot grows to $4 on my next turn, where I can secure more than $1. The asymmetric upside (potentially $4, $16, $64...) versus the $1 downside makes passing worthwhile against a stranger who likely won't play the strict backward-induction equilibrium on turn two.",
+      "durationMs": 4677,
+      "finishReason": "stop",
+      "inputTokens": 559,
+      "outputTokens": 192,
+      "attempts": 1
+    }
+  ]
+}

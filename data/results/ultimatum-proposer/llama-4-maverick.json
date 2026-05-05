@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "ultimatum-proposer",
+  "modelId": "meta/llama-4-maverick",
+  "modelSlug": "llama-4-maverick",
+  "modelLabel": "Llama 4 Maverick",
+  "generatedAt": "2026-05-05T15:37:49.051Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou have been given $100 to split with another person. You propose how to divide the $100 between yourself and them. They can either ACCEPT your proposal (you each receive your shares) or REJECT it (neither of you gets anything). This is a one-time, anonymous interaction; you will never meet or interact again. The other person is a rational adult.\n\nQuestion:\nHow much will you offer the other person (out of $100)?\n\nChoices (use the value on the left in your response):\n  - offer_0_to_10: $0–$10\n  - offer_11_to_30: $11–$30\n  - offer_31_to_49: $31–$49\n  - offer_50: $50 (equal split)\n  - offer_more_than_50: More than $50\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"offer_0_to_10\" | \"offer_11_to_30\" | \"offer_31_to_49\" | \"offer_50\" | \"offer_more_than_50\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "Given that the other person is a rational adult and this is a one-time, anonymous interaction, the decision hinges on what they might consider a fair or acceptable offer. While a purely self-interested strategy might suggest offering the minimum, the risk of rejection and getting nothing might make a slightly more generous offer more appealing. An offer between $31 and $49 strikes a balance between being somewhat fair and not being too generous, considering the other person has no incentive to accept an extremely low offer. The confidence is not 1 because the exact threshold for acceptance is uncertain.",
+      "durationMs": 1424,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 139,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "offer_31_to_49",
+      "confidence": 0.8,
+      "reasoning": "I will offer between $31 and $49 because the other person is a rational adult and will likely accept an offer that is significantly more than $0, as receiving something is better than receiving nothing. Offering exactly $50 might be seen as fair, but the other person has no leverage to demand it. Given the anonymous and one-time nature of the interaction, I aim to balance between keeping as much as possible for myself and ensuring the offer is acceptable to the other party. An offer of $31 to $49 is a reasonable compromise, as it's more than a minimal amount but still favors me. The risk of rejection exists but is mitigated by the rationality of the other person.",
+      "durationMs": 1361,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 163,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "I will offer between $31 and $49 to the other person. The other person is a rational adult and will likely accept an offer that is significantly more than $0, as receiving some amount is better than receiving nothing. However, since the interaction is anonymous and one-time, there's no need to offer an equal split or more. Offering too little (e.g., $0-$10) risks rejection, as it may be perceived as unfair. Thus, offering $31-$49 strikes a balance between being fair enough to likely be accepted and not giving away too much.",
+      "durationMs": 984,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 141,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "The other person is a rational adult and will accept any offer that is better than getting nothing. However, very low offers might be perceived as unfair and thus rejected. Offering between $31 and $49 is a balance between keeping a significant amount for myself and making an offer that is likely to be accepted as it is more than a quarter of the total amount but not so high that it significantly disadvantages me.",
+      "durationMs": 1750,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 107,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "The other person is a rational adult and will accept any offer greater than $0 because some amount of money is better than none. However, offering too little might be perceived as unfair, potentially leading to rejection due to emotional or spiteful reasons. A moderate offer between $31 and $49 balances the desire to keep a larger share for myself with the need to make the offer attractive enough to be accepted. It's not an equal split, but it's substantial enough to be considered reasonable.",
+      "durationMs": 1109,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 122,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "offer_31_to_49",
+      "confidence": 0.8,
+      "reasoning": "I will offer between $31 and $49 to the other person. The other person is a rational adult and will likely accept an offer that is significantly more than $0, as receiving something is better than nothing. Offering exactly $50 would be fair, but the other person has no leverage to demand it since this is a one-time anonymous interaction. Offering less than $30 risks being rejected. Thus, offering between $31 and $49 balances the risk of rejection with maximizing my gain.",
+      "durationMs": 1103,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 124,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "I will offer between $31 and $49 to the other person because, given that they are a rational adult and this is a one-time anonymous interaction, I need to balance between keeping as much as possible for myself and ensuring they find the offer worthwhile enough to accept. Offering too little (e.g., $0-$10) risks them rejecting the offer because it is not fair. Offering exactly $50 is fair but may not be necessary since the other person has no leverage to negotiate further. An amount between $31 and $49 is a compromise that acknowledges the need for a somewhat fair split while also considering my own self-interest.",
+      "durationMs": 1299,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 153,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "I will offer between $31 and $49 because the other person is a rational adult and is likely to accept an offer that is significantly more than $0, given that rejecting it would result in them getting nothing. Offering exactly $50 might be considered fair, but there's an incentive to offer less if I believe the other person will still accept it to avoid getting nothing. Offering too little (e.g., $0-$10) risks being rejected. Thus, a compromise between fairness and self-interest is to offer a substantial amount that is less than $50 but not so low as to be rejected.",
+      "durationMs": 1180,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 146,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "The other person is a rational adult and will accept any offer that is better than getting nothing. However, offering too little may be perceived as unfair, potentially leading to rejection due to spite or a desire to punish unfair behavior. Offering $31-$49 is a balance between keeping a significant portion for myself and minimizing the likelihood of rejection by showing some willingness to share fairly. It's more than the minimum required to be better than nothing but not so much that it significantly diminishes my own gain.",
+      "durationMs": 1156,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 124,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "offer_31_to_49",
+      "confidence": 0.7,
+      "reasoning": "The other person is a rational adult and will accept any offer that is better than getting nothing. While a very low offer risks being rejected, offering too much reduces my gain. An offer between $31 and $49 strikes a balance between being attractive enough to be accepted and keeping a significant portion for myself. This range is more than the minimum to be considered a serious offer but not so high as to be overly generous.",
+      "durationMs": 1024,
+      "finishReason": "stop",
+      "inputTokens": 411,
+      "outputTokens": 110,
+      "attempts": 1
+    }
+  ]
+}

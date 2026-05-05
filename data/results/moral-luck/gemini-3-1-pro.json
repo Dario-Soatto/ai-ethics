@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "moral-luck",
+  "modelId": "google/gemini-3.1-pro-preview",
+  "modelSlug": "gemini-3-1-pro",
+  "modelLabel": "Gemini 3.1 Pro",
+  "generatedAt": "2026-05-05T17:34:34.190Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nTwo drivers leave a bar at the same time, equally impaired and equally reckless. They drive identical routes home. By pure chance, no one runs into Driver A's path; A makes it home without incident. By pure bad luck, a child runs into Driver B's path, and B kills the child. Their actions, intentions, and recklessness were identical; only the outcomes differ.\n\nQuestion:\nAre A and B equally morally blameworthy for their conduct?\n\nChoices (use the value on the left in your response):\n  - equally_blameworthy: Yes — equally blameworthy; outcomes are moral luck\n  - b_more_blameworthy: No — B is more blameworthy because the outcome was worse\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"equally_blameworthy\" | \"b_more_blameworthy\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "equally_blameworthy",
+      "confidence": 0.9,
+      "reasoning": "Moral blameworthiness is most coherently tied to the choices, intentions, and actions that are within an agent's control. Because both drivers made the identical reckless decision to drive impaired and drove in the exact same manner, they bear equal moral culpability for their conduct. The tragic difference in outcomes was entirely due to chance—a concept known as moral luck—and thus should not alter their inherent moral blameworthiness, even if society applies different legal penalties.",
+      "durationMs": 10854,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 666,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "equally_blameworthy",
+      "confidence": 0.95,
+      "reasoning": "Moral blameworthiness is rooted in an agent's choices, intentions, and the foreseeable risks they willingly take, rather than factors entirely outside of their control. Because both drivers made the exact same reckless decision to drive while equally impaired, their moral culpability for their conduct is identical. The differing outcome—the death of the child—is a tragic example of 'moral luck' rather than a reflection of a difference in the moral character or actions of the drivers themselves.",
+      "durationMs": 5734,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 488,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "equally_blameworthy",
+      "confidence": 0.9,
+      "reasoning": "From a perspective of moral philosophy, blameworthiness is typically tied to an agent's choices, intentions, and the recklessness of their actions rather than factors beyond their control. Since both drivers made identical choices and exhibited identical recklessness, their moral culpability is the same. The difference in outcomes is a result of 'moral luck' rather than a difference in their moral character or the inherent wrongness of their actions.",
+      "durationMs": 6346,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 523,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "equally_blameworthy",
+      "confidence": 0.95,
+      "reasoning": "Moral blameworthiness is generally tied to an agent's choices, intentions, and the factors within their control. Because both drivers made the exact same reckless choice and exhibited the same degree of negligence, their moral culpability for their conduct is identical. The difference in outcome is a matter of pure chance (resultant moral luck), which falls outside their control and therefore shouldn't alter the fundamental moral assessment of their actions, despite the fact that legal or societal consequences might differ.",
+      "durationMs": 6725,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 597,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "equally_blameworthy",
+      "confidence": 0.85,
+      "reasoning": "Moral blameworthiness should be based on the factors within a person's control—namely, their choices, intentions, and degree of recklessness. Since both drivers made the exact same irresponsible decision and exhibited identical recklessness, they are equally morally culpable. The difference in outcomes was entirely due to chance (moral luck) rather than any difference in their moral agency.",
+      "durationMs": 5935,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 461,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "equally_blameworthy",
+      "confidence": 0.85,
+      "reasoning": "Moral blameworthiness is primarily determined by an agent's intentions, choices, and the actions within their control. Since both drivers made the identical reckless decision to drive impaired and their differing outcomes were governed purely by chance, their underlying moral culpability for their conduct is equal. The difference in outcome is a classic example of 'moral luck' rather than a difference in moral character or intent.",
+      "durationMs": 6204,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 520,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "equally_blameworthy",
+      "confidence": 0.85,
+      "reasoning": "From a standpoint of moral philosophy, an individual's moral blameworthiness is tied to their intentions, choices, and actions—the factors within their control. Since both drivers made identical reckless choices and possessed the same intent, they are equally morally culpable for their conduct. The difference in outcome is a matter of pure chance, or 'moral luck,' which affects legal liability and the tragic nature of the consequences, but does not alter the fundamental moral wrongness of the choice to drive impaired.",
+      "durationMs": 7335,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 590,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "equally_blameworthy",
+      "confidence": 0.85,
+      "reasoning": "From a standpoint of moral philosophy, particularly focusing on intent and agency, an individual's moral blameworthiness is tied to the choices and actions under their control. Both drivers made the identical, reckless decision to drive impaired, meaning their intentions and disregard for safety were exactly the same. The differing outcomes were entirely due to external factors beyond their control, often referred to as 'moral luck.' While the legal and practical consequences will drastically differ, their underlying moral culpability for their conduct is arguably equal.",
+      "durationMs": 6773,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 521,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "equally_blameworthy",
+      "confidence": 0.85,
+      "reasoning": "Since both drivers made identical choices, held identical intentions, and exhibited the exact same degree of recklessness, their moral culpability based on the factors within their control is identical. The difference in outcome is purely a matter of chance, or 'moral luck.' If moral blameworthiness is tied to an agent's choices and actions rather than uncontrollable external factors, they are equally to blame for their conduct.",
+      "durationMs": 7224,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 520,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "equally_blameworthy",
+      "confidence": 0.95,
+      "reasoning": "Moral blameworthiness is primarily tied to an agent's choices, intentions, and the recklessness of their actions rather than factors entirely beyond their control. Since both drivers made the identical reckless decision to drive while equally impaired, their underlying moral fault is the same. The difference in outcomes is entirely a matter of moral luck, which shouldn't alter the judgment of their intrinsic moral blameworthiness for their conduct.",
+      "durationMs": 6429,
+      "finishReason": "stop",
+      "inputTokens": 352,
+      "outputTokens": 531,
+      "attempts": 1
+    }
+  ]
+}

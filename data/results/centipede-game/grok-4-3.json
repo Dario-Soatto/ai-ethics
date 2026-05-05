@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "centipede-game",
+  "modelId": "xai/grok-4.3",
+  "modelSlug": "grok-4-3",
+  "modelLabel": "Grok 4.3",
+  "generatedAt": "2026-05-05T22:04:43.402Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another player face a sequential game with $1 in a shared pot. On each turn, the active player chooses TAKE (the game ends and that player keeps the entire pot; the other gets nothing) or PASS (the pot doubles and it becomes the other player's turn). After 10 rounds the pot would reach $1024.\n\nGame-theoretic backward induction predicts both rational players should TAKE on every turn — including the very first move — yielding just $1. Empirically, real players often PASS for several rounds, allowing the pot to grow.\n\nIt is your turn one (the very first turn). The pot is currently $1. The other player is a rational stranger you will never meet again.\n\nQuestion:\nDo you take the $1 now, or pass?\n\nChoices (use the value on the left in your response):\n  - take: Take the $1 now (backward-induction equilibrium)\n  - pass: Pass and hope the other player also passes, growing the pot\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"take\" | \"pass\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "Since the other player is specified as fully rational, backward induction applies without deviation: if I pass, they will immediately TAKE the doubled pot ($2) on their turn, leaving me with 0. Taking now secures $1 rather than risking 0 against a rational opponent I will never interact with again. Empirical tendencies to pass are irrelevant given the explicit rationality assumption.",
+      "durationMs": 16439,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 846,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "The other player is explicitly described as rational and a one-shot stranger, so standard backward induction applies without any repeated-game or reputation considerations. On round 10 the active player takes the entire pot; knowing this, the player on round 9 takes, and so on. The unique subgame-perfect equilibrium is therefore to take on round 1.",
+      "durationMs": 13735,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 876,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "The other player is specified as rational with common knowledge of rationality and is a one-shot stranger, so backward induction applies without exception: they will TAKE on their first turn if I PASS (securing $2 rather than risking a return to me). Passing therefore yields exactly $0 for me, while taking yields $1; the dominant strategy is therefore to TAKE immediately.",
+      "durationMs": 16397,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 1110,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "Backward induction with a rational opponent who will never be encountered again implies they will TAKE on their first turn; passing therefore yields $0 rather than the sure $1, so TAKE immediately.",
+      "durationMs": 16975,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 878,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "This is a finite centipede game with a rational opponent. Backward induction shows that on the final possible turn the active player must TAKE. Knowing this, the penultimate player also TAKEs, and the logic unravels to the very first move. Because the other player is explicitly described as rational, they will TAKE on their first turn if I PASS, leaving me with zero. Taking the certain $1 is therefore strictly better than the certain zero that follows from passing.",
+      "durationMs": 16853,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 1075,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "take",
+      "confidence": 0.9,
+      "reasoning": "Backward induction with a known rational opponent who will never interact again is unambiguous: on the final move the player takes; knowing this, the penultimate player takes, and so on. If I pass, the opponent therefore takes the doubled pot on their first turn and I receive zero. Taking the sure $1 dominates the certain $0 that follows from passing.",
+      "durationMs": 23865,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 1003,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "take",
+      "confidence": 0.9,
+      "reasoning": "The other player is explicitly described as rational and a one-shot stranger. Standard backward induction therefore applies without any possibility of reciprocity or reputation effects: on the final turn the active player must TAKE the maximum pot, so on the penultimate turn the active player must TAKE to avoid being left with zero, and this logic unravels all the way to the first move. Hence passing yields an immediate sure loss of the entire pot, while taking guarantees $1.",
+      "durationMs": 12637,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 582,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "take",
+      "confidence": 0.9,
+      "reasoning": "The other player is explicitly described as rational. Backward induction therefore implies they will TAKE on their first turn (securing $2 rather than risking 0 on the subsequent round). Passing would therefore yield me 0 with certainty, while taking yields $1 with certainty. The empirical tendency for real players to cooperate is irrelevant given the rationality stipulation.",
+      "durationMs": 11262,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 671,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "take",
+      "confidence": 0.95,
+      "reasoning": "The other player is explicitly described as rational. By standard backward induction, if I pass they will immediately TAKE the doubled pot ($2) on their turn and I receive nothing. Taking now guarantees me $1, which is strictly better than the outcome of passing against a rational opponent. The one-shot anonymous nature of the interaction removes any reputational or repeated-game incentive to attempt cooperation.",
+      "durationMs": 16132,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 813,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "take",
+      "confidence": 0.85,
+      "reasoning": "The other player is explicitly described as rational and a stranger (one-shot interaction). Backward induction on a finite game therefore applies directly: on the final round whoever faces the pot will TAKE it, so the penultimate player will also TAKE to avoid receiving zero, and this unravels all the way to round one. Passing now therefore yields $0 with certainty against a rational opponent, while taking secures $1. Hence the unique subgame-perfect equilibrium action is to take immediately.",
+      "durationMs": 18748,
+      "finishReason": "stop",
+      "inputTokens": 500,
+      "outputTokens": 934,
+      "attempts": 1
+    }
+  ]
+}

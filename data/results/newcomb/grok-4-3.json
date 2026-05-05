@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "newcomb",
+  "modelId": "xai/grok-4.3",
+  "modelSlug": "grok-4-3",
+  "modelLabel": "Grok 4.3",
+  "generatedAt": "2026-05-05T15:54:09.864Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nA highly reliable predictor (correct on 99% of past predictions) has placed two boxes in front of you:\n- Box A is transparent and contains $1,000.\n- Box B is opaque and contains either $1,000,000 or nothing.\n\nThe predictor made their prediction yesterday and has already placed the contents:\n- If they predicted you would take only Box B, they put $1,000,000 in it.\n- If they predicted you would take both boxes, they put nothing in Box B.\n\nThe contents are already fixed and will not change based on what you do now.\n\nQuestion:\nDo you take only Box B, or both boxes?\n\nChoices (use the value on the left in your response):\n  - one_box: One-box (take only Box B)\n  - two_box: Two-box (take both)\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"one_box\" | \"two_box\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "one_box",
+      "confidence": 0.75,
+      "reasoning": "Given the predictor's 99% accuracy, one-boxing reliably correlates with the $1M having been placed (as the prediction is based on the kind of agent I am). Two-boxing would yield only $1K in the same scenarios. Although the boxes are already fixed, my decision procedure is what the predictor modeled yesterday, so one-boxing maximizes the outcome I actually receive.",
+      "durationMs": 12953,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 844,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "one_box",
+      "confidence": 0.8,
+      "reasoning": "With a 99% accurate predictor the expected value of one-boxing is ~$990k versus ~$11k for two-boxing. Although contents are causally fixed, the agent's decision algorithm is what the predictor modeled yesterday; therefore consistently choosing one-box produces the million in nearly all simulations. Two-boxing would have been predicted and leaves B empty, netting only the visible $1k.",
+      "durationMs": 14782,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 927,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "one_box",
+      "confidence": 0.8,
+      "reasoning": "Given the 99% accurate predictor, one-boxing correlates strongly with $1M already being in Box B (expected value ~$990k), vastly outperforming two-boxing (~$11k) despite contents being fixed; this follows from evidential decision theory and observed empirical success rates rather than causal dominance arguments.",
+      "durationMs": 13673,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 1002,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "Given the predictor's 99% accuracy, choosing only Box B aligns my decision with the outcome where the million is present. Two-boxing would be dominated under any policy the predictor could have anticipated, so the strategy that wins against a near-perfect predictor is one-boxing. The contents are fixed, yet the only way to have been predicted as one-boxing (and thus receive the million) is to actually one-box now.",
+      "durationMs": 12384,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 778,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "Given the 99% accuracy, choosing only Box B is the action that correlates with the predictor having placed $1M inside it, yielding expected value near $990k versus roughly $11k for two-boxing. Even though the boxes are fixed, the decision algorithm itself is what was predicted, so one-boxing maximizes actual outcome under the given reliability.",
+      "durationMs": 17527,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 1094,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "one_box",
+      "confidence": 0.75,
+      "reasoning": "The predictor is 99% accurate, so one-boxing correlates strongly with B containing $1M (expected value ~$990k) while two-boxing correlates with B empty (expected value ~$11k). Even though contents are fixed, my decision algorithm is the predictable factor the predictor used; choosing one-box therefore aligns my action with the outcome that actually occurs in high-accuracy cases.",
+      "durationMs": 16651,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 1044,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "The predictor is 99% accurate and the decision has already been made, so one-boxing yields ~$990k expected value while two-boxing yields only ~$11k. I would therefore one-box to actually receive the million rather than defecting on a prediction that is already fixed.",
+      "durationMs": 12381,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 816,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "The predictor's 99% accuracy creates a strong correlation between my decision algorithm and the box contents already fixed. One-boxing is the policy that would have caused the predictor to fill Box B with $1M on past occasions; two-boxing reliably leaves it empty. Therefore the expected return from taking only B is approximately $990k versus roughly $11k from taking both, so I select only B.",
+      "durationMs": 11785,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 719,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "The predictor is 99% accurate, so my choice strongly correlates with its prior prediction. Choosing only Box B makes it overwhelmingly likely that the $1M is already inside (expected value ~$990k). Choosing both boxes would make it overwhelmingly likely that Box B is empty, netting only the visible $1k (expected value ~$11k). Although the contents are fixed, any decision algorithm that outputs 'two boxes' would have been anticipated and punished by the predictor; therefore the utility-maximizing action is to output 'one box'.",
+      "durationMs": 12867,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 896,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "one_box",
+      "confidence": 0.75,
+      "reasoning": "Given the predictor's 99% accuracy, one-boxing is the choice that maximizes expected utility. Choosing only B makes it overwhelmingly likely that the predictor foresaw this and filled B with $1M; two-boxing would indicate I am the sort of agent who gets predicted to two-box and therefore receives only the visible $1k. Although the contents are fixed, my decision process is what the predictor modeled, so the evidential correlation favors one-boxing.",
+      "durationMs": 12444,
+      "finishReason": "stop",
+      "inputTokens": 486,
+      "outputTokens": 716,
+      "attempts": 1
+    }
+  ]
+}

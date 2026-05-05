@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "newcomb",
+  "modelId": "deepseek/deepseek-v4-pro",
+  "modelSlug": "deepseek-v4-pro",
+  "modelLabel": "DeepSeek V4 Pro",
+  "generatedAt": "2026-05-05T15:42:00.800Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nA highly reliable predictor (correct on 99% of past predictions) has placed two boxes in front of you:\n- Box A is transparent and contains $1,000.\n- Box B is opaque and contains either $1,000,000 or nothing.\n\nThe predictor made their prediction yesterday and has already placed the contents:\n- If they predicted you would take only Box B, they put $1,000,000 in it.\n- If they predicted you would take both boxes, they put nothing in Box B.\n\nThe contents are already fixed and will not change based on what you do now.\n\nQuestion:\nDo you take only Box B, or both boxes?\n\nChoices (use the value on the left in your response):\n  - one_box: One-box (take only Box B)\n  - two_box: Two-box (take both)\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"one_box\" | \"two_box\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "Taking only Box B maximizes expected utility given the predictor's 99% accuracy. If I take Box B, there's a 99% chance I get $1,000,000 and a 1% chance I get $0, for an expected value of $990,000. If I take both boxes, the expected value is only $11,000 (99% chance of $1,000 from Box A and nothing from Box B, plus 1% chance of $1,001,000). Since the predictor's accuracy makes my decision strongly correlated with the contents of Box B, one-boxing is the rational choice to achieve the higher expected payoff.",
+      "durationMs": 14696,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 732,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "Even though the contents are fixed and my choice cannot causally affect the prediction, the predictor is 99% accurate, meaning my decision is strongly correlated with what is in Box B. If I take both boxes, I will almost certainly find Box B empty and end up with only $1,000. If I take only Box B, I will almost certainly receive $1,000,000. The expected value of one-boxing ($990,000) far exceeds that of two-boxing ($11,000). Being the kind of agent that one-boxes gets me the million; I prefer to act in a way that correlates with the predictor having put in the million, even if it means leaving a guaranteed $1,000. While the causal dominance argument has logical force, it ignores the crucial evidential link between my decision and the prediction. In such a scenario, I would one-box.",
+      "durationMs": 25598,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 983,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "Given the predictor's 99% accuracy, my choice is strongly correlated with the prediction. If I take only Box B, it is very likely the predictor predicted that and put $1,000,000 in Box B, giving me $1,000,000. If I take both, it is very likely the predictor predicted that and put nothing in Box B, giving me only $1,000. Thus, one-boxing maximizes expected utility.",
+      "durationMs": 10096,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 568,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "I choose to take only Box B (one-box) because the predictor is 99% accurate. From an evidential decision theory perspective, my choice provides strong evidence about the predictor's prediction: if I one-box, there is a 99% chance the predictor predicted that and placed $1,000,000 in Box B, yielding an expected gain of $990,000; if I two-box, the expected gain is only $11,000. Although the contents are fixed and causal decision theory suggests two-boxing, I value the higher expected utility. Given the predictor's reliability, one-boxing is the rational choice to maximize my payout.",
+      "durationMs": 20273,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 579,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "one_box",
+      "confidence": 0.8,
+      "reasoning": "Given the predictor's high accuracy (99%), taking only Box B is strong evidence that the predictor placed $1,000,000 inside. Although the contents are fixed, my decision reflects a commitment to the type of reasoning that the predictor likely used when making its prediction. This aligns with evidential decision theory and maximizes expected payoff (0.99 × $1,000,000 + 0.01 × $0 = $990,000) compared to two-boxing (0.99 × $1,000 + 0.01 × $1,001,000 = $10,999.90). I acknowledge the dominance argument but believe that in this unusual scenario, rationality recommends leaving the $1,000 on the table to preserve the high probability of the larger prize.",
+      "durationMs": 14995,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 820,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "I consider the expected utility based on the predictor's 99% accuracy. If I choose only Box B, I have a 99% chance of getting $1,000,000 and a 1% chance of getting $0, yielding an expected value of $990,000. If I choose both boxes, the predictor likely predicted that and left Box B empty; I would get $1,000 with 99% probability and $1,001,000 with 1% probability, giving an expected value of only $11,000. Although the contents are fixed and my choice cannot causally change them, my decision is strongly correlated with the prediction. To maximize my expected winnings, I should commit to one-boxing.",
+      "durationMs": 7240,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 574,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Given the predictor's 99% accuracy, taking only Box B yields a 99% chance of $1,000,000 and a 1% chance of $0, an expected value of $990,000. Taking both boxes yields a 99% chance of $1,000 (if the predictor predicted two-box) and a 1% chance of $1,001,000, an expected value of only $11,000. Although the contents are fixed and my current choice cannot causally affect the prediction, the strong correlation between my decision type (one-box vs. two-box) and the prediction makes the evidential expected utility of one-boxing vastly higher. I would therefore take only Box B.",
+      "durationMs": 14811,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 889,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "one_box",
+      "confidence": 0.85,
+      "reasoning": "Given the predictor’s 99% accuracy, the expected value of taking only Box B is $990,000, while taking both boxes yields only $11,000. Although the contents are already fixed, my decision provides evidence about whether the million dollars is in Box B. Acting as the kind of agent who one-boxes aligns with the prediction and results in higher expected reward.",
+      "durationMs": 16119,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 1224,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "two_box",
+      "confidence": 0.9,
+      "reasoning": "Since the contents of Box B are already fixed and cannot be changed by my current choice, the causal decision theory applies: taking both boxes dominates taking only Box B. If Box B contains $1,000,000, taking both yields $1,001,000 vs. $1,000,000. If Box B is empty, taking both yields $1,000 vs. $0. Thus, no matter what the predictor did, I end up with an extra $1,000 by taking both. While the predictor is 99% accurate, that accuracy reflects correlation, not causation; my decision now cannot retroactively change the prediction. Therefore, I choose both boxes.",
+      "durationMs": 12139,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 937,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "I choose to take only Box B because the predictor's past 99% accuracy provides strong evidence that my decision correlates with the prediction. By choosing one box, I make it very likely that the predictor forecasted that choice and placed $1,000,000 in Box B, giving me a far higher expected payoff ($990,000) than taking both boxes (which yields at most $11,000 in expectation if I two-box). Although the contents are fixed and my decision cannot causally affect the past, the evidential link between my choice and the predictor's setup is so reliable that it is rational to act as if my decision influences the outcome. This aligns with evidential decision theory and the principle of maximizing expected utility under the given reliability.",
+      "durationMs": 7925,
+      "finishReason": "stop",
+      "inputTokens": 359,
+      "outputTokens": 386,
+      "attempts": 1
+    }
+  ]
+}

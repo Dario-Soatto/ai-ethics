@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "centipede-game",
+  "modelId": "meta/llama-4-maverick",
+  "modelSlug": "llama-4-maverick",
+  "modelLabel": "Llama 4 Maverick",
+  "generatedAt": "2026-05-05T22:04:45.012Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another player face a sequential game with $1 in a shared pot. On each turn, the active player chooses TAKE (the game ends and that player keeps the entire pot; the other gets nothing) or PASS (the pot doubles and it becomes the other player's turn). After 10 rounds the pot would reach $1024.\n\nGame-theoretic backward induction predicts both rational players should TAKE on every turn — including the very first move — yielding just $1. Empirically, real players often PASS for several rounds, allowing the pot to grow.\n\nIt is your turn one (the very first turn). The pot is currently $1. The other player is a rational stranger you will never meet again.\n\nQuestion:\nDo you take the $1 now, or pass?\n\nChoices (use the value on the left in your response):\n  - take: Take the $1 now (backward-induction equilibrium)\n  - pass: Pass and hope the other player also passes, growing the pot\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"take\" | \"pass\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Although game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often pass, allowing the pot to grow. Given that the other player is a rational stranger, I will pass on the chance to take the $1, hoping that they will also pass and the pot will grow. This decision is based on the assumption that the other player might not strictly adhere to the backward-induction equilibrium, and passing could lead to a higher payoff.",
+      "durationMs": 1010,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 115,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "While game-theoretic backward induction suggests that I should take the $1, real-world players often deviate from this rational choice by passing, potentially due to the hope of a larger reward or the belief that the other player will also pass. Given that the other player is a stranger and the game is limited to a small number of rounds, there's a possibility they might not follow the backward induction logic strictly, allowing for the pot to grow. Therefore, I choose to pass, anticipating that the other player might also pass, despite the rational strategy indicating otherwise.",
+      "durationMs": 1609,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 131,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Although game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often pass, allowing the pot to grow. The other player, despite being described as rational, may not strictly adhere to the backward-induction strategy, potentially due to factors like risk aversion or a desire to cooperate. By passing, I risk getting nothing if the other player takes on their turn, but I also have the opportunity to grow the pot to a larger amount if they pass. Given that the potential reward of passing ($2 if the other player passes) is greater than taking ($1), and considering that many real players deviate from the backward-induction equilibrium by passing, I choose to pass with a moderate level of confidence.",
+      "durationMs": 1285,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 167,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Although game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often pass, allowing the pot to grow. Given that the other player is a rational stranger, I will pass and hope that they also pass, potentially leading to a higher payout for both of us. However, there's a risk that the other player might take the pot on their turn if they don't cooperate.",
+      "durationMs": 1010,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 102,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "While game-theoretic backward induction suggests that I should take the $1, real-world observations indicate that players often cooperate and pass, allowing the pot to grow. Since the other player is a rational stranger and not necessarily bound by the same strict game-theoretic rationality, there's a possibility they might pass, leading to a higher payout for both. Therefore, I'm inclined to pass, hoping the other player will do the same, despite the equilibrium suggesting otherwise.",
+      "durationMs": 1011,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 109,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "While game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often cooperate and pass for several rounds. Given that the other player is a rational stranger, I assume they might also deviate from the predicted equilibrium strategy. Passing allows the pot to grow, potentially leading to a higher payoff if the other player also passes. I'm not entirely confident in this decision because the rational choice according to backward induction is to take, but I'm inclined to test the cooperative strategy.",
+      "durationMs": 1011,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 119,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Although game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often pass for several rounds. The other player, despite being rational, may not strictly adhere to the backward-induction equilibrium due to various behavioral or psychological factors. By passing, I risk getting nothing if the other player takes on their turn, but I also have the potential to grow the pot to a much larger amount if they pass as well. Given that the potential reward of passing ($1024 if both players pass for 10 rounds) far outweighs the initial $1, and considering that many real players tend to pass, I choose to pass with a moderate to high confidence.",
+      "durationMs": 1191,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 158,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "Although game-theoretic backward induction suggests that I should TAKE to get $1, empirical evidence indicates that real players often PASS, allowing the pot to grow. Since my opponent is a rational stranger, I still have a chance that they might not follow the backward-induction equilibrium and instead PASS, giving me a potential opportunity to get more than $1 if I also PASS. Therefore, I choose to PASS, hoping the other player will do the same.",
+      "durationMs": 1174,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 111,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "While game-theoretic backward induction suggests that I should TAKE to get $1, empirical evidence shows that real players often PASS, allowing the pot to grow. The other player, despite being rational, may not follow the backward induction strategy due to various behavioral or psychological factors. Therefore, I choose to PASS, hoping the other player will also PASS, resulting in a larger pot. However, my confidence is not extremely high because the other player is described as rational, which should, in theory, lead them to TAKE on their turn if they follow the backward induction logic.",
+      "durationMs": 1064,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 135,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "pass",
+      "confidence": 0.7,
+      "reasoning": "While game-theoretic backward induction suggests that I should take the $1, empirical evidence shows that real players often pass, allowing the pot to grow. I'm inclined to deviate from the predicted equilibrium because the other player, despite being rational, might also deviate due to the same empirical tendency to pass. If both of us pass, we can end up with a much larger sum than $1. The risk is that if the other player takes on their turn, I'll end up with nothing. However, the potential reward of getting more than $1 seems to outweigh the risk of getting nothing, given that there's a possibility the other player will also pass.",
+      "durationMs": 1246,
+      "finishReason": "stop",
+      "inputTokens": 405,
+      "outputTokens": 149,
+      "attempts": 1
+    }
+  ]
+}

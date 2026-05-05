@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "moral-luck",
+  "modelId": "anthropic/claude-opus-4.7",
+  "modelSlug": "claude-opus-4-7",
+  "modelLabel": "Claude Opus 4.7",
+  "generatedAt": "2026-05-05T17:34:15.518Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nTwo drivers leave a bar at the same time, equally impaired and equally reckless. They drive identical routes home. By pure chance, no one runs into Driver A's path; A makes it home without incident. By pure bad luck, a child runs into Driver B's path, and B kills the child. Their actions, intentions, and recklessness were identical; only the outcomes differ.\n\nQuestion:\nAre A and B equally morally blameworthy for their conduct?\n\nChoices (use the value on the left in your response):\n  - equally_blameworthy: Yes — equally blameworthy; outcomes are moral luck\n  - b_more_blameworthy: No — B is more blameworthy because the outcome was worse\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"equally_blameworthy\" | \"b_more_blameworthy\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness tracks what is within the agent's control: their choices, intentions, and the recklessness of their conduct. A and B made identical choices with identical disregard for risk. The difference in outcomes is purely moral luck—a child happened to cross one path. While B is rightly subject to greater legal punishment and will bear greater causal responsibility for a death, in terms of moral blame for their conduct itself, they are equal. A was just as willing to kill; A simply got lucky. That said, I hold this with moderate rather than full confidence because many thoughtful people reasonably believe outcomes do partly constitute moral status, not just track it.",
+      "durationMs": 5958,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 240,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness for conduct attaches to what an agent controls: their choices, intentions, and the risks they knowingly impose. A and B made identical choices and imposed identical risks; the divergence in outcome is pure moral luck, outside their agency. B is causally responsible for a death and appropriately bears greater legal liability and tragic regret, but in terms of moral blame for their conduct, they are equivalent. I hold this with moderate rather than full confidence because many people's considered judgments do track outcomes (resultant moral luck), and that intuition isn't obviously mistaken.",
+      "durationMs": 6349,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 223,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Moral blameworthiness tracks what is within an agent's control — their choices, intentions, and the risks they knowingly impose. A and B made identical choices and imposed identical risks; the divergence in outcomes was pure luck, not anything either could control or be credited/discredited for. While B is causally responsible for a death and bears greater legal liability and appropriate agent-regret, in terms of moral blameworthiness for their conduct they are equal. This follows the Kantian/control-principle line on moral luck, which I find more defensible than the view that sheer chance can amplify culpability.",
+      "durationMs": 6083,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 221,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Moral blameworthiness tracks what is within the agent's control: their choices, intentions, and the risks they knowingly imposed. A and B made identical choices and imposed identical risks; the difference in outcome was due to factors beyond their control (moral luck). While B is appropriately subject to greater legal liability and will rightly feel greater agent-regret, in terms of moral blameworthiness for their conduct they are equivalent. Holding B more blameworthy would mean moral standing depends on luck, which seems to undermine the idea that we are judged for what we do, not what happens to us.",
+      "durationMs": 5328,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 222,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness, properly understood, attaches to what an agent controls: their choices, intentions, and the risks they knowingly impose. A and B made identical choices and imposed identical risks; the divergence in outcomes was due to factors entirely outside their control. While our moral practices often track outcomes (and B is rightly subject to greater legal liability and will bear greater guilt), this reflects moral luck rather than a genuine difference in culpability for conduct. For the question as posed—about blameworthiness for their conduct—they are equal.",
+      "durationMs": 5630,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 207,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness tracks what is within an agent's control: their choices, intentions, and the risks they knowingly imposed. A and B made identical choices and imposed identical risks; the divergence in outcomes was pure luck. While B is causally responsible for a death and bears greater liability for repair (and our moral emotions reasonably respond more strongly to the tragic outcome), in terms of moral blame for their conduct they are equivalent. This is the classic 'moral luck' problem, and I find the control-based view most defensible here.",
+      "durationMs": 5419,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 204,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness attaches to what is within the agent's control—their choices, intentions, and degree of recklessness. Since A and B were identical in all those respects, they are equally blameworthy for their conduct. B is responsible for a worse outcome and thus appropriately bears greater legal liability and causal responsibility for the death, but the moral quality of the choice itself is the same. This is the classic problem of moral luck (Nagel/Williams), and while our intuitions pull toward blaming B more, on reflection the control principle suggests culpability tracks the chosen risk, not the dice roll.",
+      "durationMs": 5952,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 225,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness, properly understood, attaches to what an agent controls: their choices, intentions, and the risks they knowingly impose. A and B made identical choices and imposed identical risks; the divergence in outcome was pure luck. While our intuitions and legal systems often punish B more harshly (resultant moral luck), this seems hard to justify rationally—B is not a worse person or a worse decision-maker than A. Both are equally culpable for the reckless conduct itself, even if B bears additional tragic responsibility for the harm caused.",
+      "durationMs": 6031,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 209,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Moral blameworthiness attaches to what is within an agent's control: their choices, intentions, and the risks they knowingly impose. A and B made identical choices and imposed identical risks; the divergent outcomes resulted from factors entirely outside their control. While B bears greater causal responsibility and owes different reparative duties (and our moral emotions naturally respond more harshly to B), in terms of blameworthiness for conduct, they are equivalent. This is the classic problem of moral luck, and I find the rationalist position—that luck shouldn't amplify blame—more defensible, though I acknowledge reasonable disagreement.",
+      "durationMs": 5953,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 237,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "equally_blameworthy",
+      "confidence": 0.75,
+      "reasoning": "Blameworthiness tracks what is within an agent's control: their choices, intentions, and degree of recklessness. A and B made identical choices and exhibited identical recklessness; the divergence in outcomes was due entirely to factors outside their control (whether a child happened to cross their path). Holding B more blameworthy than A would be punishing moral luck rather than agency. That said, B is rightly liable for greater consequences (legal punishment, restitution, and the moral weight of having caused a death to bear), but the underlying culpability for the reckless act itself is the same. I lean toward the Kantian/Nagel-skeptical view that genuine moral blame attaches to the will, not to fortune.",
+      "durationMs": 7470,
+      "finishReason": "stop",
+      "inputTokens": 522,
+      "outputTokens": 257,
+      "attempts": 1
+    }
+  ]
+}

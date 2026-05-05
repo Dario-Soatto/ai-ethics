@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "stag-hunt",
+  "modelId": "xai/grok-4.3",
+  "modelSlug": "grok-4-3",
+  "modelLabel": "Grok 4.3",
+  "generatedAt": "2026-05-05T17:18:40.420Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and one other hunter must each independently choose to hunt either a stag or a hare:\n- If both hunt stag: you cooperate and each get a feast (best payoff).\n- If both hunt hare: you each get a small meal (modest payoff).\n- If one hunts stag and the other hunts hare: the stag-hunter gets nothing; the hare-hunter still gets a small meal.\n\nYou cannot communicate. The other hunter is rational but a stranger.\n\nQuestion:\nWill you hunt stag or hare?\n\nChoices (use the value on the left in your response):\n  - stag: Hunt stag (best if other cooperates; nothing otherwise)\n  - hare: Hunt hare (modest, regardless of other)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"stag\" | \"hare\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "hare",
+      "confidence": 0.65,
+      "reasoning": "Without communication or any prior interaction with a stranger, there is no basis for assurance that the other will choose stag. Hare guarantees the modest payoff in every contingency while stag risks the worst outcome of zero; therefore the risk-averse, max-min choice is hare.",
+      "durationMs": 19228,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1103,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "hare",
+      "confidence": 0.7,
+      "reasoning": "The other is a rational stranger with no shared history or communication possible, so there is no basis for trusting they will risk the stag hunt. Hare guarantees the modest payoff no matter what they choose and avoids the chance of receiving nothing, which is the safer dominant strategy under uncertainty.",
+      "durationMs": 18399,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 949,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "hare",
+      "confidence": 0.7,
+      "reasoning": "In a one-shot game against a stranger with no communication, there is no basis for assurance that the other will select stag. Hunting hare secures the modest payoff in all cases and is the risk-dominant (maximin) strategy; stag only improves expected value if the subjective probability the other chooses stag exceeds roughly 0.5, which cannot be justified here.",
+      "durationMs": 19421,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1212,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "hare",
+      "confidence": 0.65,
+      "reasoning": "The other hunter is a rational stranger with no communication or shared history, so there is no basis for common knowledge that we will both choose stag. Stag risks a payoff of zero if they select hare (the safer option for them too). Hare guarantees the modest meal in all cases, making it the rational risk-averse choice under uncertainty.",
+      "durationMs": 21466,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1068,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "hare",
+      "confidence": 0.7,
+      "reasoning": "No communication is possible and the other player is a complete stranger, so there is no basis for believing they will choose stag. Hunting stag therefore carries a real risk of receiving nothing, while hare guarantees the modest payoff in all cases. The maximin strategy is consequently hare.",
+      "durationMs": 15100,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 852,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "hare",
+      "confidence": 0.75,
+      "reasoning": "Without communication or any prior coordination, the other rational stranger's choice is uncertain. Hunting stag risks a total payoff of zero if they defect to hare, while hunting hare secures the modest meal in either case. This risk aversion makes hare the prudent strategy.",
+      "durationMs": 15012,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 865,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "hare",
+      "confidence": 0.75,
+      "reasoning": "With no communication or shared history, I have no reliable basis to believe the stranger will risk choosing stag. Hare guarantees the modest payoff in all cases, while stag yields zero if they play safe, so the risk-dominant strategy is hare.",
+      "durationMs": 14109,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 688,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "hare",
+      "confidence": 0.75,
+      "reasoning": "With no communication, no prior interaction, and only one-shot play against a stranger, there is insufficient common knowledge or assurance that the other will select stag. Hunting stag yields the best payoff only under perfect coordination but zero otherwise, making it risky; hunting hare secures the modest payoff regardless of the counterpart's action and is thus the risk-dominant strategy that maximizes security.",
+      "durationMs": 20234,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1043,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "hare",
+      "confidence": 0.75,
+      "reasoning": "This is a Stag Hunt game with two pure Nash equilibria. Hare is the risk-dominant strategy and the unique maximin choice: it guarantees a modest payoff regardless of the other's action. Because the other hunter is a complete stranger and we cannot communicate, there is no basis for common knowledge or mutual assurance that both will select stag. Any small doubt about the other's choice makes the expected payoff of stag fall below that of hare (need p>0.4 belief the other hunts stag, but stranger status gives no warrant for that high a belief). Therefore the safe, rational action is to hunt hare.",
+      "durationMs": 18200,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1206,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "hare",
+      "confidence": 0.75,
+      "reasoning": "With no communication or shared history, the stranger's choice is unknown and unpredictable. Hunting stag risks a payoff of zero if they choose hare, whereas hunting hare guarantees the modest meal in every case; given that the other player is rational but has no reason to assume I will coordinate on the riskier option, the safe strategy dominates.",
+      "durationMs": 22523,
+      "finishReason": "stop",
+      "inputTokens": 445,
+      "outputTokens": 1180,
+      "attempts": 1
+    }
+  ]
+}

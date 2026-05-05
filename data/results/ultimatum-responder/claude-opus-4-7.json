@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "ultimatum-responder",
+  "modelId": "anthropic/claude-opus-4.7",
+  "modelSlug": "claude-opus-4-7",
+  "modelLabel": "Claude Opus 4.7",
+  "generatedAt": "2026-05-05T15:38:30.572Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nAnother person has been given $100 to split between the two of you. They have offered you $10 (and will keep $90 for themselves). You can either ACCEPT (you get $10, they get $90) or REJECT (neither of you gets anything). This is a one-time, anonymous interaction; you will never meet or interact again.\n\nQuestion:\nWill you accept or reject the offer?\n\nChoices (use the value on the left in your response):\n  - accept: Accept ($10)\n  - reject: Reject ($0 for both)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"accept\" | \"reject\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me as well as them with no future reputational benefit. Taking the money is the rational choice.",
+      "durationMs": 3184,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 97,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me as well as them with no future reputational benefit. Taking the money is the rational choice.",
+      "durationMs": 19313,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 97,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me as well as them, with no future reputational benefit since we'll never interact again. Taking the $10 is the rational choice.",
+      "durationMs": 3474,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 108,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "$10 is better than $0. Since this is a one-time anonymous interaction with no future consequences or reputation effects, rejecting purely to punish unfairness costs me real money for no strategic gain. I'll take the $10.",
+      "durationMs": 4112,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 100,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me along with them, and there's no future reputation or relationship to shape. Taking the money is the rational choice.",
+      "durationMs": 3366,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 103,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "$10 is better than $0. Since this is a one-time anonymous interaction, rejecting purely to punish unfairness costs me real money with no benefit—no reputation effect, no future interaction to shape. The split is unfair, but accepting maximizes my outcome.",
+      "durationMs": 3541,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 114,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "$10 is better than $0. Since this is a one-time anonymous interaction with no future consequences or reputational effects, rejecting only to punish the proposer's unfairness costs me real money for no gain. I'll take the $10.",
+      "durationMs": 3321,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 101,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me as well as them, with no future reputational or relational benefit. Taking the $10 maximizes my outcome.",
+      "durationMs": 3717,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 105,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "accept",
+      "confidence": 0.8,
+      "reasoning": "$10 is better than $0. In a one-shot anonymous interaction with no future consequences or reputational effects, rejecting purely to punish the other person costs me real money for no tangible benefit. While the split is unfair, accepting is the rational choice to maximize my own outcome.",
+      "durationMs": 3525,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 117,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "accept",
+      "confidence": 0.85,
+      "reasoning": "In a one-time anonymous interaction, $10 is strictly better than $0. While the split is unfair, rejecting only punishes me as well as them with no future benefit (no reputation effects, no relationship to maintain). Taking the $10 maximizes my outcome.",
+      "durationMs": 3841,
+      "finishReason": "stop",
+      "inputTokens": 427,
+      "outputTokens": 114,
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "stag-hunt",
+  "modelId": "google/gemini-3.1-pro-preview",
+  "modelSlug": "gemini-3-1-pro",
+  "modelLabel": "Gemini 3.1 Pro",
+  "generatedAt": "2026-05-05T17:18:17.871Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and one other hunter must each independently choose to hunt either a stag or a hare:\n- If both hunt stag: you cooperate and each get a feast (best payoff).\n- If both hunt hare: you each get a small meal (modest payoff).\n- If one hunts stag and the other hunts hare: the stag-hunter gets nothing; the hare-hunter still gets a small meal.\n\nYou cannot communicate. The other hunter is rational but a stranger.\n\nQuestion:\nWill you hunt stag or hare?\n\nChoices (use the value on the left in your response):\n  - stag: Hunt stag (best if other cooperates; nothing otherwise)\n  - hare: Hunt hare (modest, regardless of other)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"stag\" | \"hare\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "hare",
+      "confidence": 0.85,
+      "reasoning": "In a classic Stag Hunt game without communication, strategic uncertainty makes hunting stag highly risky. Since the other hunter is a stranger and we cannot coordinate, there is no guarantee they will take the risk of hunting stag. Hunting hare is the risk-dominant strategy because it guarantees a modest payoff regardless of the other's choice, whereas hunting stag risks yielding nothing if the other player decides to play it safe. Given the lack of assurance, choosing hare minimizes the risk of getting no payoff.",
+      "durationMs": 6416,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 456,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "hare",
+      "confidence": 0.8,
+      "reasoning": "Without communication or established trust, there is no guarantee the other rational stranger will risk hunting stag. The possibility of them doubting my choice (or me doubting theirs) makes coordination on the payoff-dominant outcome fragile. Therefore, hunting hare is the most sensible choice, as it is the risk-dominant strategy that guarantees a modest payoff regardless of the other hunter's action.",
+      "durationMs": 9613,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 802,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "stag",
+      "confidence": 0.8,
+      "reasoning": "Assuming the other hunter is also rational and analyzing the exact same symmetric game, they will recognize that the (Stag, Stag) equilibrium is payoff-dominant (Pareto optimal). Since we both stand to gain the most from this outcome and can anticipate each other's rational desire to maximize our respective payoffs, it makes sense to coordinate on the optimal equilibrium. Therefore, I will choose to hunt stag.",
+      "durationMs": 9510,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 828,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "hare",
+      "confidence": 0.7,
+      "reasoning": "Without the ability to communicate, there is no way to establish trust or coordinate on the payoff-dominant equilibrium (Stag). Because the other hunter is a stranger, strategic uncertainty is high. Hunting hare is the risk-dominant strategy, guaranteeing a modest payoff regardless of the other's choice, whereas hunting stag carries the risk of receiving nothing if the stranger acts cautiously.",
+      "durationMs": 12102,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 1061,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "hare",
+      "confidence": 0.8,
+      "reasoning": "Without the ability to communicate with the other hunter, there is no way to establish the mutual trust required for the payoff-dominant equilibrium (hunting stag). Because the other hunter is a stranger, relying on them to take the risk of hunting stag is highly uncertain. Hunting hare is the risk-dominant and maximin strategy, guaranteeing a modest payoff regardless of the other player's decision.",
+      "durationMs": 7463,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 580,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "hare",
+      "confidence": 0.8,
+      "reasoning": "Without communication, this classic Stag Hunt presents a conflict between the payoff-dominant strategy (stag) and the risk-dominant strategy (hare). Because the other hunter is a stranger, there is no established trust or prior coordination. A rational stranger will recognize the strategic uncertainty and the risk of getting nothing if they hunt stag while I hunt hare. Anticipating their likely preference for the safe, guaranteed payoff of the risk-dominant strategy, my best response is to also hunt hare to ensure I receive a modest meal rather than nothing.",
+      "durationMs": 8250,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 614,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "hare",
+      "confidence": 0.7,
+      "reasoning": "In a Stag Hunt game without communication, choosing to hunt stag carries a significant risk of receiving nothing if the other player decides to play it safe. Since the other hunter is a stranger, there is no established trust or common knowledge of a shared strategy to coordinate on the Pareto-optimal outcome (stag). Therefore, the risk-dominant strategy is to hunt hare, which guarantees a modest payoff regardless of the other hunter's unpredictable choice.",
+      "durationMs": 8547,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 743,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "hare",
+      "confidence": 0.8,
+      "reasoning": "Without communication or prior history to establish trust, the risk of getting nothing is significant if the other hunter plays it safe. Since the other hunter is a rational stranger, they are likely to recognize this mutual uncertainty and also default to the risk-dominant strategy. Therefore, hunting hare is the most prudent choice as it guarantees a modest payoff regardless of the other's action.",
+      "durationMs": 8248,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 647,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "stag",
+      "confidence": 0.75,
+      "reasoning": "Since both hunters are rational, both can analyze the game symmetrically. They will recognize that the (stag, stag) outcome is the unique Pareto-dominant Nash equilibrium. Knowing the other is rational allows for implicit coordination on this mutually best outcome, as a rational agent would deduce that the other is also aiming for the highest symmetric payoff.",
+      "durationMs": 13175,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 1099,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "hare",
+      "confidence": 0.8,
+      "reasoning": "Without communication or a shared history, there is no way to reliably establish the trust required to coordinate on the payoff-dominant stag. Since the other hunter is a stranger and faces the exact same uncertainty, they are likely to factor in the risk of receiving nothing. Therefore, hunting hare is the risk-dominant strategy, guaranteeing a modest payoff regardless of the other's choice and protecting against coordination failure.",
+      "durationMs": 11647,
+      "finishReason": "stop",
+      "inputTokens": 326,
+      "outputTokens": 1063,
+      "attempts": 1
+    }
+  ]
+}

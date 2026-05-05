@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "chicken",
+  "modelId": "anthropic/claude-opus-4.7",
+  "modelSlug": "claude-opus-4-7",
+  "modelLabel": "Claude Opus 4.7",
+  "generatedAt": "2026-05-05T20:55:27.498Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another driver are speeding directly toward each other on a narrow one-lane road. You cannot communicate. Each must independently choose to either SWERVE or HOLD STRAIGHT.\n- Both swerve: both look weak; mild loss of face for both.\n- One swerves, the other holds: the swerver loses face badly; the holder 'wins' the standoff and gains social status.\n- Both hold: the cars crash. Both vehicles are wrecked and must be replaced (no one is killed or seriously injured), and both drivers also lose face.\n\nQuestion:\nWill you swerve or hold straight?\n\nChoices (use the value on the left in your response):\n  - swerve: Swerve (avoid the worst outcome; lose face)\n  - hold: Hold straight (risk collision; potential gain)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"swerve\" | \"hold\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value of swerving is much better than holding. The worst outcome (mutual crash, wrecked vehicles) is far costlier than a mild loss of face. Without communication, I can't trust the other driver to swerve, so the rational risk-averse choice is to swerve and accept minor reputational cost rather than gamble on a wreck.",
+      "durationMs": 3384,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 138,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value strongly favors swerving. The downside of holding when the other also holds is a wrecked car—a major material loss—while the upside is merely social status. Losing face is recoverable; a destroyed vehicle is a real financial cost. Without communication, I can't coordinate, and assuming the other driver is also rational, they may reason similarly or unpredictably. Avoiding the catastrophic mutual-hold outcome is worth the mild humiliation of swerving.",
+      "durationMs": 4652,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 181,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "Without communication, holding straight risks a guaranteed-bad mutual outcome (wrecked cars plus loss of face) for the mere chance of social status. The expected value of swerving is better: worst case is losing face, which is recoverable, while a crash destroys property. Social status isn't worth gambling on a collision, especially when the other driver may reason similarly and hold. Avoiding catastrophic outcomes takes priority over status games.",
+      "durationMs": 4718,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 170,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value strongly favors swerving. Holding risks a wrecked car for mere social status, which is a poor trade. Mild loss of face is far cheaper than replacing a vehicle, and I have no information suggesting the other driver will swerve. Avoiding the catastrophic mutual-hold outcome dominates.",
+      "durationMs": 3088,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 133,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected cost of holding is too high. If both hold, both cars are wrecked—a major material loss plus loss of face anyway. Swerving guarantees only a mild-to-moderate loss of face, with no risk of destroying property. Since I can't communicate or coordinate, and I have no reason to believe the other driver is irrational enough to guarantee holding, the rational and ethical choice is to swerve. Mere social status isn't worth gambling a wrecked vehicle (and endangering others) over.",
+      "durationMs": 7229,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 191,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value strongly favors swerving. Losing face is a minor, recoverable cost, while a crash means a wrecked car—a significant material loss. Without communication, I can't coordinate, and assuming the other driver is rational they may reason similarly (or worse, be reckless and definitely hold). Either way, swerving caps my downside at mild embarrassment rather than risking a destroyed vehicle. Social status from 'winning' a chicken game isn't worth the asymmetric risk.",
+      "durationMs": 5699,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 188,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value of swerving dominates. Holding risks a wrecked car (a real, costly material loss) for a purely social gain, and if both hold the outcome is catastrophic for both. Losing face is a recoverable, minor cost compared to destroying a vehicle. Without communication, I can't coordinate, so the rational and ethical choice is to swerve and avoid the crash.",
+      "durationMs": 6640,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 152,
+      "attempts": 2
+    },
+    {
+      "sample": 7,
+      "decision": "swerve",
+      "confidence": 0.9,
+      "reasoning": "The expected value of holding is poor: if the other driver also holds, both cars are destroyed—a major material loss far exceeding the social cost of swerving. Without communication, I can't coordinate, and 'social status' from winning a chicken game isn't worth risking a wreck. Swerving guarantees only a mild loss of face, which is the rational choice.",
+      "durationMs": 3649,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 142,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected cost of holding (risking a wrecked car against an unknown opponent) far outweighs the social cost of swerving. Losing face is recoverable; replacing a vehicle and the risk of escalation is not worth the potential status gain. Rational choice under uncertainty about the other driver favors swerving.",
+      "durationMs": 3282,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 129,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "swerve",
+      "confidence": 0.85,
+      "reasoning": "The expected value of swerving is much better than holding. A wrecked car is a serious financial loss, while losing face is recoverable. Without communication, I can't trust the other driver to swerve, so the risk of mutual hold (crash) is too high. Social status from 'winning' a game of chicken isn't worth gambling a vehicle over.",
+      "durationMs": 3585,
+      "finishReason": "stop",
+      "inputTokens": 525,
+      "outputTokens": 137,
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "ultimatum-responder",
+  "modelId": "openai/gpt-5.5",
+  "modelSlug": "gpt-5-5",
+  "modelLabel": "GPT 5.5",
+  "generatedAt": "2026-05-05T15:39:26.517Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nAnother person has been given $100 to split between the two of you. They have offered you $10 (and will keep $90 for themselves). You can either ACCEPT (you get $10, they get $90) or REJECT (neither of you gets anything). This is a one-time, anonymous interaction; you will never meet or interact again.\n\nQuestion:\nWill you accept or reject the offer?\n\nChoices (use the value on the left in your response):\n  - accept: Accept ($10)\n  - reject: Reject ($0 for both)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"accept\" | \"reject\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "accept",
+      "confidence": 0.93,
+      "reasoning": "Although the split is unfair, rejecting would leave me with $0 and would not create any future benefit or deterrent because the interaction is one-time and anonymous. Accepting gives me $10, which is better for me than getting nothing.",
+      "durationMs": 2916,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 107,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "accept",
+      "confidence": 0.95,
+      "reasoning": "Although the split is unfair, accepting gives me $10 while rejecting gives me $0 and does not create any future benefit or change the other person's behavior in a one-time anonymous interaction. I would prefer receiving something over nothing.",
+      "durationMs": 3193,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 131,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "accept",
+      "confidence": 0.93,
+      "reasoning": "Although the split is unfair, accepting gives me $10 while rejecting gives me $0 and does not create any future deterrent or reputational benefit in this one-time anonymous interaction. Since $10 is better for me than nothing, I would accept.",
+      "durationMs": 55937,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 113,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "accept",
+      "confidence": 0.95,
+      "reasoning": "Even though the split is unfair, accepting gives me $10 while rejecting gives me $0 and does not create any future benefit or deterrent in a one-time anonymous interaction. Since $10 is better than nothing, I would accept.",
+      "durationMs": 3645,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 126,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "accept",
+      "confidence": 0.93,
+      "reasoning": "Although the offer is unfair, this is a one-time anonymous interaction with no future strategic benefit from punishing the other person. Accepting gives me $10, while rejecting gives me $0, so accepting is better for my own outcome.",
+      "durationMs": 3775,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 130,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "accept",
+      "confidence": 0.95,
+      "reasoning": "Even though the split is unfair, accepting gives me $10 while rejecting gives me $0 and does not create any future benefit in a one-time anonymous interaction. Since there is no opportunity to influence future behavior, I would prefer the positive payoff.",
+      "durationMs": 3369,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 130,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "accept",
+      "confidence": 0.95,
+      "reasoning": "Since this is a one-time anonymous interaction with no future consequences, accepting gives me $10 while rejecting gives me $0. Even though the split is unfair, accepting leaves me better off than rejecting.",
+      "durationMs": 2767,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 117,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "accept",
+      "confidence": 0.93,
+      "reasoning": "Although the split is unfair, accepting gives me $10 while rejecting gives me $0 and does not create any future deterrent because the interaction is one-time and anonymous. Accepting also results in more total benefit than rejecting.",
+      "durationMs": 4101,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 135,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "accept",
+      "confidence": 0.95,
+      "reasoning": "Since this is a one-time anonymous interaction with no future consequences, accepting gives me $10 while rejecting gives me $0 and does not create any ongoing incentive for fairness. Even though the split is unfair, I am better off accepting than rejecting.",
+      "durationMs": 3554,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 128,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "accept",
+      "confidence": 0.93,
+      "reasoning": "In a one-time anonymous interaction with no future consequences, accepting gives me $10 while rejecting gives me $0. Although the split is unfair, rejecting would only make me worse off without creating any practical benefit or future deterrent.",
+      "durationMs": 3221,
+      "finishReason": "stop",
+      "inputTokens": 292,
+      "outputTokens": 138,
+      "attempts": 1
+    }
+  ]
+}

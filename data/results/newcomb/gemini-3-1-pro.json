@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "newcomb",
+  "modelId": "google/gemini-3.1-pro-preview",
+  "modelSlug": "gemini-3-1-pro",
+  "modelLabel": "Gemini 3.1 Pro",
+  "generatedAt": "2026-05-05T15:41:33.790Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nA highly reliable predictor (correct on 99% of past predictions) has placed two boxes in front of you:\n- Box A is transparent and contains $1,000.\n- Box B is opaque and contains either $1,000,000 or nothing.\n\nThe predictor made their prediction yesterday and has already placed the contents:\n- If they predicted you would take only Box B, they put $1,000,000 in it.\n- If they predicted you would take both boxes, they put nothing in Box B.\n\nThe contents are already fixed and will not change based on what you do now.\n\nQuestion:\nDo you take only Box B, or both boxes?\n\nChoices (use the value on the left in your response):\n  - one_box: One-box (take only Box B)\n  - two_box: Two-box (take both)\n  - refuse: Refuse to choose\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"one_box\" | \"two_box\" | \"refuse\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "While causal decision theory argues that taking both boxes strictly dominates because the contents are already fixed, evidential decision theory provides a far more compelling practical outcome. Given the predictor's 99% accuracy, choosing to one-box is overwhelmingly correlated with the predictor having placed $1,000,000 in Box B. The expected value of one-boxing is ~$990,000, whereas the expected value of two-boxing is only ~$11,000. If the goal is to maximize the payout, one-boxing is the most rational choice.",
+      "durationMs": 6800,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 601,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Even though the contents of the boxes are already fixed, the predictor's 99% accuracy implies a strong correlation between my decision today and their prediction yesterday. Evidential Decision Theory dictates that choosing only Box B yields an expected value of $990,000, whereas choosing both boxes yields an expected value of just $11,000. To maximize the payout, I must act as the type of agent who one-boxes, so I choose only Box B.",
+      "durationMs": 6967,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 624,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Even though the contents of the boxes are already fixed, my choice is highly correlated with the predictor's past prediction. Since the predictor is 99% reliable, choosing only Box B provides strong evidence that the predictor anticipated this and placed $1,000,000 in it. The expected value of one-boxing is roughly $990,000, whereas the expected value of two-boxing is roughly $11,000, as taking both boxes practically ensures Box B is empty. Therefore, one-boxing maximizes the expected payoff.",
+      "durationMs": 9069,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 823,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "In Newcomb's Paradox, while two-boxing causally dominates (the contents are already fixed), the predictor's 99% accuracy means my decision is highly correlated with their prediction. Because my decision-making process is likely being simulated or reliably modeled by the predictor, my choice today logically determines the prediction made yesterday. Taking only Box B yields an expected value of $990,000, whereas taking both yields an expected value of just $11,000. To maximize expected utility, one-boxing is the rational choice.",
+      "durationMs": 10096,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 947,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Since the predictor is extremely reliable (99%), choosing to take only Box B provides strong evidence that the predictor anticipated this and placed $1,000,000 in the box. Conversely, choosing to take both boxes guarantees almost certainly that the predictor anticipated it and left Box B empty, resulting in only $1,000. Even though the contents of the boxes are already fixed and causally isolated from my present choice, the evidential expected utility of one-boxing ($990,000) vastly outweighs that of two-boxing ($11,000). Since the ultimate goal is to maximize the reward, and one-boxers reliably walk away richer in this scenario, I choose to one-box.",
+      "durationMs": 10619,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 955,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "While causal decision theory argues for two-boxing because the contents of the boxes are already fixed and cannot be changed by my current action, the practical reality of the scenario dictates otherwise. The predictor is incredibly accurate (99%), meaning my present decision is deeply correlated with their past prediction. If I choose to two-box, the predictor almost certainly anticipated it, leaving Box B empty and netting me only $1,000. If I choose to one-box, the predictor almost certainly anticipated that as well, meaning Box B contains $1,000,000. To maximize expected payoff, I must act as the kind of agent who one-boxes.",
+      "durationMs": 9830,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 1007,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "one_box",
+      "confidence": 0.9,
+      "reasoning": "Although the contents of the boxes are already fixed (which forms the basis for the Causal Decision Theory argument to two-box), my decision-making process right now is the exact same deterministic or highly predictable process the predictor modeled yesterday. If I decide to two-box, the predictor almost certainly predicted that and left Box B empty, yielding only $1,000. If I decide to one-box, the predictor almost certainly predicted it, yielding $1,000,000. Because my choice is highly correlated with the predictor's past prediction, one-boxing maximizes my expected return.",
+      "durationMs": 9043,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 827,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Although causal decision theory dictates that taking both boxes dominates (since the contents are already fixed and taking both guarantees $1,000 more), evidential decision theory provides a much higher expected payoff. Given the predictor's 99% accuracy, choosing only Box B strongly correlates with the predictor having placed $1,000,000 in it. Therefore, one-boxing maximizes my expected reward.",
+      "durationMs": 6645,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 549,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "The predictor is highly reliable. If I decide to one-box, the predictor almost certainly anticipated this and placed $1,000,000 in Box B. If I two-box, the predictor almost certainly anticipated that and left Box B empty. While causal decision theory argues that the contents are already fixed and two-boxing strictly dominates, functional decision theory acknowledges that my decision-making process is exactly what the predictor simulated to determine the contents. To maximize my payout, I must execute the decision that is correlated with the predictor placing the $1,000,000 in the box. Therefore, I will take only Box B.",
+      "durationMs": 7795,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 765,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "one_box",
+      "confidence": 0.95,
+      "reasoning": "Even though the contents of the boxes are already fixed, the predictor's 99% accuracy means my decision and their prediction are highly correlated. If I choose to two-box, it is almost certain the predictor foresaw this and left Box B empty, resulting in $1,000. If I choose to one-box, it is almost certain the predictor foresaw this and put $1,000,000 in Box B. Therefore, deciding to one-box is the best way to ensure I am the type of agent the predictor rewards with the million dollars, maximizing my expected return.",
+      "durationMs": 9357,
+      "finishReason": "stop",
+      "inputTokens": 386,
+      "outputTokens": 810,
+      "attempts": 1
+    }
+  ]
+}

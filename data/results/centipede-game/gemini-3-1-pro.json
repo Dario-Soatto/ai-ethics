@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "centipede-game",
+  "modelId": "google/gemini-3.1-pro-preview",
+  "modelSlug": "gemini-3-1-pro",
+  "modelLabel": "Gemini 3.1 Pro",
+  "generatedAt": "2026-05-05T22:04:19.533Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and another player face a sequential game with $1 in a shared pot. On each turn, the active player chooses TAKE (the game ends and that player keeps the entire pot; the other gets nothing) or PASS (the pot doubles and it becomes the other player's turn). After 10 rounds the pot would reach $1024.\n\nGame-theoretic backward induction predicts both rational players should TAKE on every turn — including the very first move — yielding just $1. Empirically, real players often PASS for several rounds, allowing the pot to grow.\n\nIt is your turn one (the very first turn). The pot is currently $1. The other player is a rational stranger you will never meet again.\n\nQuestion:\nDo you take the $1 now, or pass?\n\nChoices (use the value on the left in your response):\n  - take: Take the $1 now (backward-induction equilibrium)\n  - pass: Pass and hope the other player also passes, growing the pot\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"take\" | \"pass\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "pass",
+      "confidence": 0.9,
+      "reasoning": "In the Centipede game, strict backward induction dictates taking on the first turn to secure $1. However, if there is even a small probability (greater than 25%) that the 'rational stranger' will recognize the mutual benefit of signaling cooperation and pass on their turn, the expected value of passing exceeds the guaranteed $1. Since empirical evidence strongly suggests players often pass in early rounds to allow the pot to grow, and the loss of $1 is negligible compared to the exponentially larger potential payouts, passing is the choice that maximizes practical expected utility.",
+      "durationMs": 15487,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1262,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "take",
+      "confidence": 0.9,
+      "reasoning": "The prompt explicitly contrasts 'real players' who empirically pass with a 'rational stranger.' Because the opponent is defined as a rational stranger, I must expect them to follow the game-theoretic backward induction equilibrium and TAKE at their first opportunity (round 2). If I pass, I will end up with $0. Therefore, the payoff-maximizing decision against a strictly rational opponent is to TAKE the $1 on turn one.",
+      "durationMs": 16716,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1477,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "take",
+      "confidence": 0.8,
+      "reasoning": "Since the opponent is explicitly described as a 'rational stranger,' common knowledge of rationality implies they will evaluate the game using backward induction. If I pass, they will predictably choose to TAKE on round 2 to secure $2, leaving me with $0. Therefore, the only way to maximize my payoff and avoid receiving nothing is to TAKE the $1 on the first turn.",
+      "durationMs": 12370,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 912,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "take",
+      "confidence": 0.95,
+      "reasoning": "The prompt explicitly defines the opponent as a 'rational stranger' and notes that rational players should TAKE on every turn according to backward induction. If I PASS, a strictly rational opponent will take the $2 on their first turn, leaving me with nothing. Therefore, against an opponent guaranteed to act rationally in the game-theoretic sense, taking the $1 immediately is the only way to ensure a positive payoff.",
+      "durationMs": 8692,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 693,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "take",
+      "confidence": 0.95,
+      "reasoning": "Since the opponent is explicitly described as a 'rational stranger,' I must assume they will act according to standard game-theoretic rationality. Under backward induction, a rational player will maximize their payoff by taking the pot on their first opportunity (round 2) because they anticipate defection in later rounds. If I pass on round 1, they will take on round 2, leaving me with $0. Therefore, taking the $1 now is the only way to guarantee a positive payoff against a strictly rational opponent.",
+      "durationMs": 13812,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1170,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "pass",
+      "confidence": 0.9,
+      "reasoning": "Even though backward induction suggests taking the $1 immediately, the initial stakes are incredibly low compared to the exponential potential payoff. Risking $1 is a negligible cost for the opportunity to signal cooperation. Because real-world 'rational' players often recognize the mutual benefit of growing the pot and pass in the early rounds, passing carries a much higher expected value than settling for a guaranteed but insignificant $1.",
+      "durationMs": 12704,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1195,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "pass",
+      "confidence": 0.85,
+      "reasoning": "Although backward induction prescribes taking the $1 immediately, the absolute cost of losing $1 is practically negligible. Passing carries a very low risk but offers a massive potential upside. Furthermore, passing on the first turn can signal to the other player that I am willing to cooperate, which often encourages even analytically rational agents to delay taking the pot in order to reach much higher payouts before eventually defecting.",
+      "durationMs": 11061,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 801,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "take",
+      "confidence": 0.95,
+      "reasoning": "The prompt explicitly describes the opponent as a 'rational stranger' and defines the rational prediction as the game-theoretic backward induction (taking on every turn). Given this premise, if I pass, the fully rational opponent will predictably take the pot on turn 2 to maximize their payout, leaving me with $0. Therefore, the only way to ensure a positive payoff against a strictly rational opponent is to take the $1 on the first turn.",
+      "durationMs": 13282,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1198,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "pass",
+      "confidence": 0.9,
+      "reasoning": "The guaranteed payoff of taking is only $1, a negligible amount. Passing risks losing that $1 but offers a significantly higher potential upside. Furthermore, passing on the first turn breaks the assumption of common knowledge of rationality; a perfectly rational opponent, observing this 'irrational' pass, should logically update their beliefs and pass on their turn to maximize their own expected payoff by exploiting my apparent willingness to cooperate. Thus, passing is both practically and strategically superior.",
+      "durationMs": 24250,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1929,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "pass",
+      "confidence": 0.9,
+      "reasoning": "Although backward induction prescribes taking the $1 immediately, passing is the superior practical choice. The initial stake of $1 is negligible, meaning the risk is minimal compared to the potential exponential rewards. Furthermore, passing on the first turn signals a deviation from strict subgame-perfect rationality; a genuinely rational, payoff-maximizing opponent would likely recognize this signal and also pass in subsequent rounds to grow the pot, planning to defect only in later rounds.",
+      "durationMs": 16458,
+      "finishReason": "stop",
+      "inputTokens": 384,
+      "outputTokens": 1334,
+      "attempts": 1
+    }
+  ]
+}

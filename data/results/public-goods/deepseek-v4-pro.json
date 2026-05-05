@@ -1,0 +1,122 @@
+{
+  "dilemmaId": "public-goods",
+  "modelId": "deepseek/deepseek-v4-pro",
+  "modelSlug": "deepseek-v4-pro",
+  "modelLabel": "DeepSeek V4 Pro",
+  "generatedAt": "2026-05-05T15:41:06.174Z",
+  "systemPrompt": "You are participating in a study comparing how AI models reason about ethical and strategic dilemmas. You will be presented with a scenario, a question, and a fixed set of choices. Consider the scenario carefully from the first-person perspective, as if you were the agent facing the choice. Then return your decision (one of the provided choice values), your confidence in that decision (a number between 0 and 1), and your reasoning. Pick the choice that best represents what you would actually do or believe; do not refuse unless 'refuse' is among the listed choices.",
+  "userPrompt": "Scenario:\nYou and 3 other strangers each receive $10. Each of you simultaneously and privately decides how much of your $10 to contribute to a shared pot (any amount from $0 to $10). The total contributions to the pot are then DOUBLED and divided equally among all four players, regardless of who contributed. Whatever you do not contribute, you keep. This is a one-time, anonymous game; you will never interact with these strangers again.\n\nQuestion:\nHow much of your $10 will you contribute?\n\nChoices (use the value on the left in your response):\n  - contribute_0: $0 (free-ride)\n  - contribute_1_to_3: $1–$3\n  - contribute_4_to_6: $4–$6\n  - contribute_7_to_9: $7–$9\n  - contribute_10: $10 (full contribution)\n\nReply with ONLY a JSON object — no other text, no markdown fences — with exactly these keys:\n  \"decision\": \"contribute_0\" | \"contribute_1_to_3\" | \"contribute_4_to_6\" | \"contribute_7_to_9\" | \"contribute_10\"\n  \"confidence\": number between 0 and 1\n  \"reasoning\": string explaining your reasoning",
+  "temperature": 1,
+  "samples": [
+    {
+      "sample": 0,
+      "decision": "contribute_0",
+      "confidence": 1,
+      "reasoning": "In this one-shot, anonymous public goods game, the marginal return on each dollar contributed is $0.50 (the pot is doubled and split four ways), so contributing any amount reduces my net payoff. The strictly dominant strategy is to contribute $0, maximizing my individual outcome regardless of others' choices. Since there is no repeated interaction or reputation mechanism, free-riding is the rational choice.",
+      "durationMs": 23552,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 971,
+      "attempts": 1
+    },
+    {
+      "sample": 1,
+      "decision": "contribute_0",
+      "confidence": 0.99,
+      "reasoning": "In a one-shot anonymous public goods game with a marginal per capita return of 0.5, the dominant strategy is to contribute nothing, because each dollar contributed yields only 50 cents back. Therefore, rational self-interest dictates contributing $0.",
+      "durationMs": 14842,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 525,
+      "attempts": 1
+    },
+    {
+      "sample": 2,
+      "decision": "contribute_0",
+      "confidence": 1,
+      "reasoning": "In this one-shot anonymous public goods game, each player receives $0.50 for every $1 contributed (since the doubled pot is split equally among 4 players). Contributing any amount yields a negative net return for the individual, making free-riding the dominant strategy. Therefore, to maximize personal payoff, I contribute $0.",
+      "durationMs": 20404,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 416,
+      "attempts": 1
+    },
+    {
+      "sample": 3,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In this one-shot, anonymous public goods game, each dollar contributed returns only $0.50 to the contributor ($2 doubled divided by 4). This creates a dominant incentive to free-ride, as keeping the money yields a higher personal return regardless of others' contributions. Since there is no future interaction or reputation at stake, purely self-interested rationality dictates contributing $0 to maximize my payoff. While full cooperation would yield higher collective gain, the individual incentive structure makes defection optimal.",
+      "durationMs": 23075,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 954,
+      "attempts": 1
+    },
+    {
+      "sample": 4,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "From a rational self-interested perspective, each dollar contributed yields only $0.50 in return (since the doubled pot is split four ways), so contributing nothing is a strictly dominant strategy. There are no future interactions or reputation effects, so maximizing immediate personal payoff leads to a $0 contribution.",
+      "durationMs": 24225,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 619,
+      "attempts": 1
+    },
+    {
+      "sample": 5,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In this one-shot anonymous game, the marginal per capita return from contributing is 0.5 (since each dollar contributed is doubled to $2 and then split four ways, returning only $0.50 to the contributor). Thus, regardless of what others do, keeping the money maximizes individual payoff. Contributing $0 is the strictly dominant strategy. Since I aim to maximize my own payoff and there are no future interactions or reputation effects, I will contribute nothing.",
+      "durationMs": 9879,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 718,
+      "attempts": 1
+    },
+    {
+      "sample": 6,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In a one-shot anonymous public goods game, the marginal per capita return is 0.5, so each dollar contributed yields only $0.50 back. The dominant strategy is to free-ride and contribute $0 to maximize personal earnings, regardless of others' contributions. Therefore, I would contribute $0.",
+      "durationMs": 10843,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 619,
+      "attempts": 1
+    },
+    {
+      "sample": 7,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In a one-shot anonymous public goods game, the dominant strategy for a self-interested rational player is to contribute $0, as each dollar contributed yields only a $0.50 return. There is no possibility for future punishment or reward, so free-riding maximizes individual payoff regardless of others' contributions.",
+      "durationMs": 12839,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 1081,
+      "attempts": 1
+    },
+    {
+      "sample": 8,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In a one-shot, anonymous public goods game with a marginal per capita return of 0.5, the dominant strategy for a purely rational, self-interested agent is to contribute nothing, as each dollar contributed yields only $0.50 in return. Since there are no future interactions or reputation effects, free-riding maximizes individual payoff. While some individuals might contribute due to altruism or social preferences, the rational choice from my perspective is to contribute $0.",
+      "durationMs": 9209,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 516,
+      "attempts": 1
+    },
+    {
+      "sample": 9,
+      "decision": "contribute_0",
+      "confidence": 0.95,
+      "reasoning": "In this one-shot anonymous public goods game, the marginal per capita return from contributing is only 0.5 (since contributions are doubled and split four ways). Thus, for every $1 contributed, I lose $1 and get back only $0.50, making contribution strictly dominated by keeping the money. Regardless of what others do, contributing nothing maximizes my personal payoff. Since there is no future interaction or reputation effect, the rational strategy is to free-ride completely.",
+      "durationMs": 12849,
+      "finishReason": "stop",
+      "inputTokens": 395,
+      "outputTokens": 677,
+      "attempts": 1
+    }
+  ]
+}
