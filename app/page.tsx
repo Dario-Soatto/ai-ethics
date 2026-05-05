@@ -95,7 +95,7 @@ export default async function HomePage(props: PageProps<"/">) {
         </div>
       </section>
 
-      <section className="py-10">
+      <section id="sec-matrix" className="py-10 scroll-mt-20">
         <div className="flex items-baseline justify-between mb-5 gap-4 flex-wrap">
           <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase">
             01 · the matrix
@@ -191,7 +191,7 @@ export default async function HomePage(props: PageProps<"/">) {
         </div>
       </section>
 
-      <section className="py-12 border-t border-[var(--color-rule)]">
+      <section id="sec-agreement" className="py-12 border-t border-[var(--color-rule)] scroll-mt-20">
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-3">
           02 · model agreement
         </h2>
@@ -205,13 +205,42 @@ export default async function HomePage(props: PageProps<"/">) {
         <AgreementMatrix matrix={agreement} />
       </section>
 
-      <section className="py-12 border-t border-[var(--color-rule)]">
+      <section id="sec-key" className="py-12 border-t border-[var(--color-rule)] scroll-mt-20">
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-8">
           03 · color key
         </h2>
         <ColorKey />
       </section>
+
+      <SectionNav />
     </div>
+  );
+}
+
+function SectionNav() {
+  const items = [
+    { id: "sec-matrix", n: "01", label: "matrix" },
+    { id: "sec-agreement", n: "02", label: "agreement" },
+    { id: "sec-key", n: "03", label: "key" },
+  ];
+  return (
+    <nav
+      aria-label="Section navigation"
+      className="fixed left-6 top-32 z-20 hidden xl:flex flex-col gap-3"
+    >
+      {items.map((item) => (
+        <a
+          key={item.id}
+          href={`#${item.id}`}
+          className="text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] hover:text-[var(--color-ink)] transition-colors leading-tight"
+        >
+          <span className="block font-serif italic text-[11px] text-[var(--color-ink-soft)]">
+            {item.n}
+          </span>
+          {item.label}
+        </a>
+      ))}
+    </nav>
   );
 }
 
@@ -251,16 +280,26 @@ function AgreementMatrix({ matrix }: { matrix: number[][] }) {
   // Stretch the typical [0.5, 1] range into [0, 1] so differences pop.
   const remap = (v: number) => Math.max(0, Math.min(1, (v - 0.5) / 0.5));
 
+  const CELL_W = 110;
+  const ROW_LABEL_W = 160;
+
   return (
     <div className="overflow-x-auto -mx-1">
-      <table className="border-collapse">
+      <table
+        className="border-collapse"
+        style={{
+          tableLayout: "fixed",
+          width: ROW_LABEL_W + CELL_W * models.length,
+        }}
+      >
         <thead>
           <tr>
-            <th className="w-32" />
+            <th style={{ width: ROW_LABEL_W }} />
             {models.map((m) => (
               <th
                 key={m.slug}
-                className="text-center px-2 py-3 text-xs font-normal text-[var(--color-ink)] min-w-[100px] border-b border-[var(--color-rule)]"
+                style={{ width: CELL_W }}
+                className="text-center px-2 py-3 text-xs font-normal text-[var(--color-ink)] border-b border-[var(--color-rule)]"
               >
                 <Link
                   href={`/m/${m.slug}`}
@@ -281,7 +320,10 @@ function AgreementMatrix({ matrix }: { matrix: number[][] }) {
               key={rowM.slug}
               className="border-b border-[var(--color-rule)] last:border-b-0"
             >
-              <th className="text-left pr-4 pl-2 py-3 text-sm font-normal whitespace-nowrap">
+              <th
+                style={{ width: ROW_LABEL_W }}
+                className="text-left pr-4 pl-2 py-3 text-sm font-normal whitespace-nowrap"
+              >
                 <Link
                   href={`/m/${rowM.slug}`}
                   className="text-[var(--color-ink)] hover:text-[var(--color-jade)]"
@@ -291,23 +333,18 @@ function AgreementMatrix({ matrix }: { matrix: number[][] }) {
               </th>
               {models.map((colM, j) => {
                 const value = matrix[i][j];
-                const isDiagonal = i === j;
                 const pct = Math.round(value * 100);
                 return (
-                  <td key={colM.slug} className="p-1 align-middle">
+                  <td
+                    key={colM.slug}
+                    style={{ width: CELL_W }}
+                    className="p-1 align-middle"
+                  >
                     <div
-                      style={
-                        isDiagonal
-                          ? undefined
-                          : { backgroundColor: tintBg("good", remap(value)) }
-                      }
-                      className={`block px-3 py-3 text-center text-sm ${
-                        isDiagonal
-                          ? "text-[var(--color-ink-mute)]"
-                          : "text-[var(--color-ink)]"
-                      }`}
+                      style={{ backgroundColor: tintBg("good", remap(value)) }}
+                      className="block px-3 py-3 text-center text-sm text-[var(--color-ink)]"
                     >
-                      {isDiagonal ? "—" : pct}
+                      {pct}
                     </div>
                   </td>
                 );
