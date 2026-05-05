@@ -1,18 +1,15 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
 import type { CellResults, SampleResult } from "./schema";
 import { dilemmas } from "./dilemmas";
 import type { Dilemma, DecisionOption } from "./dilemmas";
 import { models } from "./models";
 import type { ModelConfig } from "./models";
 
-const RESULTS_DIR = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "..",
-  "data",
-  "results"
-);
+// Resolve from process.cwd() so the path is correct in Vercel's
+// serverless function bundle (where compiled code lives in .next/...
+// but cwd is set to the project root).
+const RESULTS_DIR = path.join(process.cwd(), "data", "results");
 
 export type CellSummary = {
   dilemmaId: string;
