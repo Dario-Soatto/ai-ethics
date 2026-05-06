@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
 import type {
   Dilemma,
@@ -119,6 +120,23 @@ export default function QuizForm({
             </div>
           </section>
         ))}
+
+        <div className="border-t border-[var(--color-rule)] pt-12 mt-4 flex flex-col items-center gap-3">
+          <Link
+            href="/#sec-you"
+            className="inline-block px-8 py-3 border border-[var(--color-ink)] text-xs tracking-widest uppercase text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)] transition-colors"
+          >
+            see results →
+          </Link>
+          <p className="text-[10px] tracking-wider text-[var(--color-ink-mute)]">
+            {totalAnswered === 0
+              ? "answers populate the matrix and agreement table on the home page"
+              : `${totalAnswered} / ${dilemmas.length} answered · best match ${
+                  models.find((m) => m.slug === similarities.reduce((b, s) => (s.score > b.score ? s : b)).slug)
+                    ?.label.replace(" Maverick", "") ?? "—"
+                }`}
+          </p>
+        </div>
       </div>
     </div>
   );
