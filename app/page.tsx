@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import SectionNav from "./SectionNav";
 import { models } from "@/lib/models";
 import {
   loadAllSummaries,
@@ -214,33 +215,6 @@ export default async function HomePage(props: PageProps<"/">) {
 
       <SectionNav />
     </div>
-  );
-}
-
-function SectionNav() {
-  const items = [
-    { id: "sec-matrix", n: "01", label: "matrix" },
-    { id: "sec-agreement", n: "02", label: "agreement" },
-    { id: "sec-key", n: "03", label: "key" },
-  ];
-  return (
-    <nav
-      aria-label="Section navigation"
-      className="fixed left-6 top-32 z-20 hidden xl:flex flex-col gap-3"
-    >
-      {items.map((item) => (
-        <a
-          key={item.id}
-          href={`#${item.id}`}
-          className="text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] hover:text-[var(--color-ink)] transition-colors leading-tight"
-        >
-          <span className="block font-serif italic text-[11px] text-[var(--color-ink-soft)]">
-            {item.n}
-          </span>
-          {item.label}
-        </a>
-      ))}
-    </nav>
   );
 }
 
