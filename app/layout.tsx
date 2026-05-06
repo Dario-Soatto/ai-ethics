@@ -35,14 +35,22 @@ export default function RootLayout({
       className={`${mono.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="px-8 py-6 border-b border-[var(--color-rule)]">
+        <header className="px-8 py-6 border-b border-[var(--color-rule)] sticky top-0 z-20 bg-[var(--color-paper)]">
           <div className="mx-auto max-w-6xl flex items-baseline justify-between">
-            <Link
-              href="/"
-              className="text-xs tracking-widest text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
-            >
-              M.E.C. <span className="text-[var(--color-ink-mute)]">/ catalog</span>
-            </Link>
+            <div className="flex items-baseline gap-4">
+              <Link
+                href="/"
+                className="text-xs tracking-widest text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
+              >
+                M.E.C. <span className="text-[var(--color-ink-mute)]">/ catalog</span>
+              </Link>
+              <Link
+                href="/me"
+                className="text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] hover:text-[var(--color-ink)]"
+              >
+                you
+              </Link>
+            </div>
             <span className="text-[10px] tracking-wider text-[var(--color-ink-mute)]">
               n=10 · temp=1.0 · {models.length} models · {dilemmas.length} dilemmas
             </span>
