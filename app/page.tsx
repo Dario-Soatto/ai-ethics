@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionNav from "./SectionNav";
 import MatrixTable from "./MatrixTable";
 import AgreementMatrix from "./AgreementMatrix";
+import YouSection from "./YouSection";
 import { models } from "@/lib/models";
 import { loadAllSummaries, buildCompactData } from "@/lib/data";
 import { tintBg, TONE_CSS_VAR } from "@/lib/colors";
@@ -98,17 +99,20 @@ export default async function HomePage(props: PageProps<"/">) {
           dilemmas={visibleDilemmas}
           data={compactData}
         />
-        <p className="mt-6 text-xs text-[var(--color-ink-soft)] leading-relaxed max-w-2xl">
-          Want to see how you stack up?{" "}
-          <Link
-            href="/you"
-            className="text-[var(--color-jade)] underline underline-offset-2 hover:text-[var(--color-ink)]"
-          >
-            Take the quiz
-          </Link>{" "}
-          and your answers populate the rightmost column on the matrix and the
-          bottom row & rightmost column here. Saved locally on your device.
-        </p>
+      </section>
+
+      <section
+        id="sec-you"
+        className="py-12 border-t border-[var(--color-rule)] scroll-mt-20"
+      >
+        <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-6">
+          03 · you
+        </h2>
+        <YouSection
+          models={models}
+          dilemmas={visibleDilemmas}
+          data={compactData}
+        />
       </section>
 
       <section
@@ -116,7 +120,7 @@ export default async function HomePage(props: PageProps<"/">) {
         className="py-12 border-t border-[var(--color-rule)] scroll-mt-20"
       >
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-8">
-          03 · color key
+          04 · color key
         </h2>
         <ColorKey />
       </section>

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 const ITEMS = [
   { id: "sec-matrix", n: "01", label: "matrix" },
   { id: "sec-agreement", n: "02", label: "agreement" },
-  { id: "sec-key", n: "03", label: "key" },
+  { id: "sec-you", n: "03", label: "you" },
+  { id: "sec-key", n: "04", label: "key" },
 ] as const;
 
 export default function SectionNav() {
