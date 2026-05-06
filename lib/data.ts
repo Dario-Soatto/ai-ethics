@@ -161,6 +161,43 @@ export function computeAgreementMatrix(
   return matrix;
 }
 
+// ─── Compact data shape for client components ─────────────────────────
+// We send a minimal shape (just decision counts + modal + total) to the
+// client so it can render the matrix, agreement, and you-similarity
+// without shipping every reasoning text.
+
+export type CompactCell = {
+  modal: { value: string; count: number } | null;
+  counts: Record<string, number>;
+  total: number;
+};
+
+export type CompactData = Record<string, Record<string, CompactCell>>;
+
+export function buildCompactData(
+  summaries: DilemmaWithCells[]
+): CompactData {
+  const out: CompactData = {};
+  for (const { dilemma, cells } of summaries) {
+    out[dilemma.id] = {};
+    for (const slug of Object.keys(cells)) {
+      const cell = cells[slug];
+      const counts: Record<string, number> = {};
+      for (const s of cell.validSamples) {
+        counts[s.decision] = (counts[s.decision] ?? 0) + 1;
+      }
+      out[dilemma.id][slug] = {
+        modal: cell.modal
+          ? { value: cell.modal.value, count: cell.modal.count }
+          : null,
+        counts,
+        total: cell.validSamples.length,
+      };
+    }
+  }
+  return out;
+}
+
 export async function loadModelAcrossDilemmas(
   modelSlug: string
 ): Promise<{ model: ModelConfig; rows: { dilemma: Dilemma; summary: CellSummary }[] } | null> {

@@ -37,7 +37,7 @@ export default function SectionNav() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed left-6 top-32 z-20 hidden xl:flex flex-col gap-3"
+      className="fixed left-6 top-32 z-10 hidden xl:flex flex-col gap-3"
     >
       {ITEMS.map((item) => {
         const isActive = active === item.id;

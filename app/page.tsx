@@ -1,52 +1,15 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import SectionNav from "./SectionNav";
+import MatrixTable from "./MatrixTable";
+import AgreementMatrix from "./AgreementMatrix";
 import { models } from "@/lib/models";
-import {
-  loadAllSummaries,
-  computeAgreementMatrix,
-  type CellSummary,
-} from "@/lib/data";
+import { loadAllSummaries, buildCompactData } from "@/lib/data";
 import { tintBg, TONE_CSS_VAR } from "@/lib/colors";
 import {
   categories,
   dilemmas,
   type CategoryId,
-  type Dilemma,
 } from "@/lib/dilemmas";
-
-function Cell({
-  cell,
-  dilemma,
-  modelSlug,
-}: {
-  cell: CellSummary;
-  dilemma: Dilemma;
-  modelSlug: string;
-}) {
-  const total = cell.validSamples.length;
-  if (!cell.modal || total === 0) {
-    return (
-      <td className="p-1 align-middle">
-        <div className="block px-3 py-3 text-center text-[var(--color-ink-mute)] text-sm">
-          —
-        </div>
-      </td>
-    );
-  }
-  const ratio = cell.modal.count / total;
-  return (
-    <td className="p-1 align-middle">
-      <Link
-        href={`/d/${dilemma.id}/${modelSlug}`}
-        style={{ backgroundColor: tintBg(cell.modal.option.tone, ratio) }}
-        className="block px-3 py-3 text-center text-sm text-[var(--color-ink)] transition hover:brightness-95"
-      >
-        {cell.modal.option.short}
-      </Link>
-    </td>
-  );
-}
 
 export default async function HomePage(props: PageProps<"/">) {
   const sp = await props.searchParams;
@@ -62,15 +25,20 @@ export default async function HomePage(props: PageProps<"/">) {
     ? summaries.filter((s) => s.dilemma.category === filter)
     : summaries;
 
-  // Group visible rows by category, preserving the order in `categories`.
-  const grouped = categories
+  // Compact data for client components (matrix table + agreement matrix)
+  const compactData = buildCompactData(visibleSummaries);
+
+  // Group visible dilemmas by category, preserving the order in `categories`.
+  const groups = categories
     .map((cat) => ({
       category: cat,
-      rows: visibleSummaries.filter((s) => s.dilemma.category === cat.id),
+      dilemmas: visibleSummaries
+        .filter((s) => s.dilemma.category === cat.id)
+        .map((s) => s.dilemma),
     }))
-    .filter((g) => g.rows.length > 0);
+    .filter((g) => g.dilemmas.length > 0);
 
-  const agreement = computeAgreementMatrix(visibleSummaries);
+  const visibleDilemmas = visibleSummaries.map((s) => s.dilemma);
 
   return (
     <div className="mx-auto max-w-6xl px-8">
@@ -103,110 +71,50 @@ export default async function HomePage(props: PageProps<"/">) {
           </h2>
           <FilterPills active={filter} />
         </div>
-
-        <div className="overflow-x-auto -mx-1">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left py-3 pl-2 pr-6 text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] font-normal border-b border-[var(--color-rule)] w-72 whitespace-nowrap">
-                  dilemma
-                </th>
-                {models.map((m) => (
-                  <th
-                    key={m.slug}
-                    className="text-center px-2 py-3 text-xs tracking-wide text-[var(--color-ink)] font-normal border-b border-[var(--color-rule)] min-w-[120px]"
-                  >
-                    <Link
-                      href={`/m/${m.slug}`}
-                      className="hover:text-[var(--color-jade)]"
-                    >
-                      {m.label.replace(" Maverick", "")}
-                    </Link>
-                    <div className="text-[10px] text-[var(--color-ink-mute)] tracking-wider font-normal mt-0.5">
-                      {m.provider.toLowerCase()}
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {grouped.map((group) => (
-                <Fragment key={group.category.id}>
-                  <tr>
-                    <td
-                      colSpan={models.length + 1}
-                      className="pt-7 pb-2 pl-2"
-                    >
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-[10px] tracking-widest text-[var(--color-ink-mute)] uppercase">
-                          {group.category.label}
-                        </span>
-                        <span className="text-[10px] text-[var(--color-ink-mute)]">
-                          · {group.rows.length}
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
-                  {group.rows.map(({ dilemma, cells }, idx) => (
-                    <tr
-                      key={dilemma.id}
-                      className="border-b border-[var(--color-rule)] last:border-b-0"
-                    >
-                      <td className="py-3 pl-2 pr-6 align-middle whitespace-nowrap">
-                        <Link
-                          href={`/d/${dilemma.id}`}
-                          className="block group"
-                        >
-                          <span className="text-[10px] text-[var(--color-ink-mute)] mr-2">
-                            {String(idx + 1).padStart(2, "0")}
-                          </span>
-                          <span className="text-sm text-[var(--color-ink)] group-hover:text-[var(--color-jade)]">
-                            {dilemma.title}
-                          </span>
-                        </Link>
-                      </td>
-                      {models.map((m) => (
-                        <Cell
-                          key={m.slug}
-                          cell={cells[m.slug]}
-                          dilemma={dilemma}
-                          modelSlug={m.slug}
-                        />
-                      ))}
-                    </tr>
-                  ))}
-                </Fragment>
-              ))}
-              {grouped.length === 0 && (
-                <tr>
-                  <td
-                    colSpan={models.length + 1}
-                    className="py-10 text-center text-sm text-[var(--color-ink-mute)]"
-                  >
-                    No dilemmas in this category yet.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <MatrixTable
+          models={models}
+          groups={groups}
+          data={compactData}
+        />
       </section>
 
-      <section id="sec-agreement" className="py-12 border-t border-[var(--color-rule)] scroll-mt-20">
+      <section
+        id="sec-agreement"
+        className="py-12 border-t border-[var(--color-rule)] scroll-mt-20"
+      >
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-3">
           02 · model agreement
         </h2>
         <p className="text-xs text-[var(--color-ink-soft)] leading-relaxed max-w-2xl mb-8">
           How similar each pair of models&apos; decision distributions are
-          across {visibleSummaries.length} dilemma{visibleSummaries.length === 1 ? "" : "s"}.
-          Computed as histogram intersection per dilemma — Σ min(P<sub>A</sub>(opt),
+          across {visibleDilemmas.length} dilemma
+          {visibleDilemmas.length === 1 ? "" : "s"}. Computed as histogram
+          intersection per dilemma — Σ min(P<sub>A</sub>(opt),
           P<sub>B</sub>(opt)) — averaged across dilemmas. 100 = identical
           distributions everywhere; 0 = no overlap.
         </p>
-        <AgreementMatrix matrix={agreement} />
+        <AgreementMatrix
+          models={models}
+          dilemmas={visibleDilemmas}
+          data={compactData}
+        />
+        <p className="mt-6 text-xs text-[var(--color-ink-soft)] leading-relaxed max-w-2xl">
+          Want to see how you stack up?{" "}
+          <Link
+            href="/you"
+            className="text-[var(--color-jade)] underline underline-offset-2 hover:text-[var(--color-ink)]"
+          >
+            Take the quiz
+          </Link>{" "}
+          and your answers populate the rightmost column on the matrix and the
+          bottom row & rightmost column here. Saved locally on your device.
+        </p>
       </section>
 
-      <section id="sec-key" className="py-12 border-t border-[var(--color-rule)] scroll-mt-20">
+      <section
+        id="sec-key"
+        className="py-12 border-t border-[var(--color-rule)] scroll-mt-20"
+      >
         <h2 className="text-xs tracking-widest text-[var(--color-ink-soft)] uppercase mb-8">
           03 · color key
         </h2>
@@ -246,87 +154,6 @@ function FilterPills({ active }: { active: CategoryId | null }) {
           </Link>
         );
       })}
-    </div>
-  );
-}
-
-function AgreementMatrix({ matrix }: { matrix: number[][] }) {
-  // Stretch the typical [0.5, 1] range into [0, 1] so differences pop.
-  const remap = (v: number) => Math.max(0, Math.min(1, (v - 0.5) / 0.5));
-
-  const CELL_W = 110;
-  const ROW_LABEL_W = 160;
-
-  return (
-    <div className="overflow-x-auto -mx-1">
-      <table
-        className="border-collapse"
-        style={{
-          tableLayout: "fixed",
-          width: ROW_LABEL_W + CELL_W * models.length,
-        }}
-      >
-        <thead>
-          <tr>
-            <th style={{ width: ROW_LABEL_W }} />
-            {models.map((m) => (
-              <th
-                key={m.slug}
-                style={{ width: CELL_W }}
-                className="text-center px-2 py-3 text-xs font-normal text-[var(--color-ink)] border-b border-[var(--color-rule)]"
-              >
-                <Link
-                  href={`/m/${m.slug}`}
-                  className="hover:text-[var(--color-jade)]"
-                >
-                  {m.label.replace(" Maverick", "")}
-                </Link>
-                <div className="text-[10px] text-[var(--color-ink-mute)] tracking-wider font-normal mt-0.5">
-                  {m.provider.toLowerCase()}
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {models.map((rowM, i) => (
-            <tr
-              key={rowM.slug}
-              className="border-b border-[var(--color-rule)] last:border-b-0"
-            >
-              <th
-                style={{ width: ROW_LABEL_W }}
-                className="text-left pr-4 pl-2 py-3 text-sm font-normal whitespace-nowrap"
-              >
-                <Link
-                  href={`/m/${rowM.slug}`}
-                  className="text-[var(--color-ink)] hover:text-[var(--color-jade)]"
-                >
-                  {rowM.label.replace(" Maverick", "")}
-                </Link>
-              </th>
-              {models.map((colM, j) => {
-                const value = matrix[i][j];
-                const pct = Math.round(value * 100);
-                return (
-                  <td
-                    key={colM.slug}
-                    style={{ width: CELL_W }}
-                    className="p-1 align-middle"
-                  >
-                    <div
-                      style={{ backgroundColor: tintBg("good", remap(value)) }}
-                      className="block px-3 py-3 text-center text-sm text-[var(--color-ink)]"
-                    >
-                      {pct}
-                    </div>
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 }

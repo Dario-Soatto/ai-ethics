@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import type {
   Dilemma,
   Category,
@@ -8,9 +8,8 @@ import type {
 } from "@/lib/dilemmas";
 import type { ModelConfig } from "@/lib/models";
 import { tintBg } from "@/lib/colors";
-import type { CompactData } from "./page";
-
-const STORAGE_KEY = "mec-quiz-answers-v1";
+import type { CompactData } from "@/lib/data";
+import { useUserAnswers } from "@/lib/useUserAnswers";
 
 type Props = {
   dilemmas: Dilemma[];
@@ -25,29 +24,7 @@ export default function QuizForm({
   models,
   data,
 }: Props) {
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [hydrated, setHydrated] = useState(false);
-
-  // Hydrate from localStorage once on mount
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved) setAnswers(JSON.parse(saved));
-    } catch {
-      // ignore
-    }
-    setHydrated(true);
-  }, []);
-
-  // Persist on change
-  useEffect(() => {
-    if (!hydrated) return;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
-    } catch {
-      // ignore
-    }
-  }, [answers, hydrated]);
+  const { answers, setAnswers } = useUserAnswers();
 
   const similarities = useMemo(() => {
     return models.map((m) => {

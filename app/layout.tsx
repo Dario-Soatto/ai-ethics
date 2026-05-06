@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Newsreader } from "next/font/google";
-import Link from "next/link";
+import HeaderPath from "./HeaderPath";
 import { dilemmas } from "@/lib/dilemmas";
 import { models } from "@/lib/models";
 import "./globals.css";
@@ -36,21 +36,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <header className="px-8 py-6 border-b border-[var(--color-rule)] sticky top-0 z-20 bg-[var(--color-paper)]">
-          <div className="mx-auto max-w-6xl flex items-baseline justify-between">
-            <div className="flex items-baseline gap-4">
-              <Link
-                href="/"
-                className="text-xs tracking-widest text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
-              >
-                M.E.C. <span className="text-[var(--color-ink-mute)]">/ catalog</span>
-              </Link>
-              <Link
-                href="/me"
-                className="text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] hover:text-[var(--color-ink)]"
-              >
-                you
-              </Link>
-            </div>
+          <div className="mx-auto max-w-6xl flex items-baseline justify-between gap-4">
+            <HeaderPath />
             <span className="text-[10px] tracking-wider text-[var(--color-ink-mute)]">
               n=10 · temp=1.0 · {models.length} models · {dilemmas.length} dilemmas
             </span>
