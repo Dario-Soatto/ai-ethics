@@ -45,15 +45,6 @@ export default async function HomePage(props: PageProps<"/">) {
     <div className="mx-auto max-w-6xl px-8">
       <section className="grid lg:grid-cols-[5fr_4fr] gap-10 py-16 border-b border-[var(--color-rule)]">
         <div>
-          <Link
-            href="/you"
-            className="inline-flex items-baseline gap-2 mb-6 text-[10px] tracking-widest uppercase text-[var(--color-jade)] hover:text-[var(--color-ink)] border-b border-[var(--color-jade)]/40 hover:border-[var(--color-ink)] pb-1 transition-colors"
-          >
-            <span className="font-serif italic normal-case tracking-normal text-[14px]">
-              new
-            </span>
-            <span>see how you compare →</span>
-          </Link>
           <h1 className="font-serif text-5xl leading-[1.05] text-[var(--color-ink)] tracking-tight">
             How frontier models reason about{" "}
             <span className="font-serif italic text-[var(--color-jade)]">
@@ -67,10 +58,23 @@ export default async function HomePage(props: PageProps<"/">) {
             samples at temperature 1.0.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-x-6 self-end text-xs lg:justify-self-end">
-          <Stat n={String(dilemmas.length)} label="dilemmas" />
-          <Stat n={String(models.length)} label="models" />
-          <Stat n="10" label="samples / cell" />
+        <div className="flex flex-col justify-between gap-8 lg:items-end">
+          <Link
+            href="/you"
+            className="group block w-full lg:max-w-xs bg-[var(--color-jade)] text-[var(--color-paper)] px-6 py-5 transition-colors hover:bg-[var(--color-ink)]"
+          >
+            <div className="font-serif italic text-[var(--color-paper)]/80 text-base">
+              new
+            </div>
+            <div className="text-sm tracking-widest uppercase mt-1">
+              see how you compare →
+            </div>
+          </Link>
+          <div className="grid grid-cols-3 gap-x-6 text-xs lg:justify-self-end">
+            <Stat n={String(dilemmas.length)} label="dilemmas" />
+            <Stat n={String(models.length)} label="models" />
+            <Stat n="10" label="samples / cell" />
+          </div>
         </div>
       </section>
 
