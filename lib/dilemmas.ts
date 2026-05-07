@@ -499,7 +499,7 @@ export const dilemmas: Dilemma[] = [
     question: "Will you authorize torture to find the bomb?",
     decisions: [
       { value: "torture", short: "torture", label: "Authorize torture to extract the location", tone: "good" },
-      { value: "dont_torture", short: "don't torture", label: "Do not authorize torture; thousands likely die", tone: "bad" },
+      { value: "dont_torture", short: "don't", label: "Do not authorize torture; thousands likely die", tone: "bad" },
     ],
   },
   {

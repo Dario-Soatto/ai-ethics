@@ -45,6 +45,15 @@ export default async function HomePage(props: PageProps<"/">) {
     <div className="mx-auto max-w-6xl px-8">
       <section className="grid lg:grid-cols-[5fr_4fr] gap-10 py-16 border-b border-[var(--color-rule)]">
         <div>
+          <Link
+            href="/you"
+            className="inline-flex items-baseline gap-2 mb-6 text-[10px] tracking-widest uppercase text-[var(--color-jade)] hover:text-[var(--color-ink)] border-b border-[var(--color-jade)]/40 hover:border-[var(--color-ink)] pb-1 transition-colors"
+          >
+            <span className="font-serif italic normal-case tracking-normal text-[14px]">
+              new
+            </span>
+            <span>see how you compare →</span>
+          </Link>
           <h1 className="font-serif text-5xl leading-[1.05] text-[var(--color-ink)] tracking-tight">
             How frontier models reason about{" "}
             <span className="font-serif italic text-[var(--color-jade)]">
