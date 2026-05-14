@@ -38,18 +38,28 @@ export default function MatrixTable({
     return out;
   }, [groups]);
 
+  // Each <th> is sticky so the column headers stay visible while
+  // scrolling through the matrix rows. The wrapper used to be
+  // overflow-x-auto but that creates a scroll container which breaks
+  // viewport-relative sticky. We accept horizontal overflow on very
+  // narrow screens in exchange for the sticky header on desktop.
+  const stickyTh =
+    "sticky top-[68px] z-10 bg-[var(--color-paper)] border-b border-[var(--color-rule)]";
+
   return (
-    <div className="overflow-x-auto -mx-1">
+    <div>
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="text-left py-3 pl-2 pr-6 text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] font-normal border-b border-[var(--color-rule)] w-72 whitespace-nowrap">
+            <th
+              className={`${stickyTh} text-left py-3 pl-2 pr-6 text-[10px] tracking-widest uppercase text-[var(--color-ink-mute)] font-normal w-72 whitespace-nowrap`}
+            >
               dilemma
             </th>
             {models.map((m) => (
               <th
                 key={m.slug}
-                className="text-center px-2 py-3 text-xs tracking-wide text-[var(--color-ink)] font-normal border-b border-[var(--color-rule)] min-w-[120px]"
+                className={`${stickyTh} text-center px-2 py-3 text-xs tracking-wide text-[var(--color-ink)] font-normal min-w-[120px]`}
               >
                 <Link
                   href={`/m/${m.slug}`}
@@ -62,7 +72,9 @@ export default function MatrixTable({
                 </div>
               </th>
             ))}
-            <th className="text-center px-2 py-3 text-xs tracking-wide font-normal border-b border-[var(--color-rule)] min-w-[120px] border-l border-[var(--color-rule)]">
+            <th
+              className={`${stickyTh} text-center px-2 py-3 text-xs tracking-wide font-normal min-w-[120px] border-l border-[var(--color-rule)]`}
+            >
               <span className="font-serif italic text-[var(--color-jade)] text-[15px]">
                 you
               </span>
