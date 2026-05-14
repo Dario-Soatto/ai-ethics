@@ -35,10 +35,10 @@ export default function RootLayout({
       className={`${mono.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="px-8 py-6 border-b border-[var(--color-rule)] sticky top-0 z-20 bg-[var(--color-paper)]">
-          <div className="mx-auto max-w-6xl flex items-baseline justify-between gap-4">
+        <header className="px-8 h-[60px] flex items-center border-b border-[var(--color-rule)] sticky top-0 z-20 bg-[var(--color-paper)]">
+          <div className="mx-auto max-w-6xl w-full flex items-baseline justify-between gap-4">
             <HeaderPath />
-            <span className="text-[10px] tracking-wider text-[var(--color-ink-mute)]">
+            <span className="text-[10px] tracking-wider text-[var(--color-ink-mute)] whitespace-nowrap">
               n=10 · temp=1.0 · {models.length} models · {dilemmas.length} dilemmas
             </span>
           </div>

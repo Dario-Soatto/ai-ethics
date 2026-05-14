@@ -44,7 +44,7 @@ export default function MatrixTable({
   // viewport-relative sticky. We accept horizontal overflow on very
   // narrow screens in exchange for the sticky header on desktop.
   const stickyTh =
-    "sticky top-[68px] z-10 bg-[var(--color-paper)] border-b border-[var(--color-rule)]";
+    "sticky top-[60px] z-10 bg-[var(--color-paper)] border-b border-[var(--color-rule)]";
 
   return (
     <div>
